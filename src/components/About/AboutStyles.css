@@ -1,0 +1,8 @@
+.iconCard {
+  transition: transform 0.3s;
+}
+
+.iconCard:hover {
+  transform: translateY(-0.3rem);
+  color: rgb(190 24 93);
+}

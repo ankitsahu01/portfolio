@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
+  text-align: justify;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #212121;
+  background-image: url("./assets/black-pink-bg-1.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-blend-mode: overlay;
+}
+
+/* Scroll bar */
+::-webkit-scrollbar {
+  max-width: 7px;
+  background-color: #5e2038;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: #db2777;
+}
+
+.highlight {
+  font-weight: 500;
+  color: rgb(219 39 119);
+}
