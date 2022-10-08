@@ -1,8 +1,9 @@
+import "./resume.css";
+import resume from "../../assets/resume.pdf";
+
 const Resume = () => {
   return (
-    <div className="min-h-screen pt-20">
-      <div>Resume</div>
-    </div>
+      <embed src={resume} className="resume pt-20" />
   );
 };
 
