@@ -3,8 +3,6 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 
 const Contact = () => {
-  console.log(process.env.REACT_APP_EMAILJS_SERVICE_ID);
-  
   const [data, setData] = useState({
     user_name: "",
     user_email: "",
