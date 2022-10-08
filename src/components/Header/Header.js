@@ -42,10 +42,10 @@ const Header = () => {
           <div className="first"></div>
           <div className="second"></div>
         </div>
-        <nav className="hidden md:flex grow items-center justify-end gap-20">
+        <nav className="hidden lg:flex grow items-center justify-end gap-20">
           <NavLinks />
         </nav>
-        <div className="md:hidden flex grow justify-end">
+        <div className="lg:hidden flex grow justify-end">
           <button onClick={toggleMenu}>
             {isMenuOpen ? <ImCross size="1.5em" /> : <FaBars size="1.5em" />}
           </button>
@@ -54,7 +54,7 @@ const Header = () => {
 
       <nav
         id="mobileMenu"
-        className="md:hidden flex flex-col items-center h-0 transition-[height] duration-500"
+        className="lg:hidden flex flex-col items-center h-0 transition-[height] duration-500"
       >
         <NavLinks closeMenu={closeMenu} />
       </nav>

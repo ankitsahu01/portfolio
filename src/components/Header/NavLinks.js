@@ -6,7 +6,7 @@ const NavLinks = ({ closeMenu }) => {
     <>
       <NavLink
         className={({ isActive }) =>
-          "navLink my-2 md:my-0 " + (isActive ? "highlight" : "")
+          "navLink my-2 lg:my-0 " + (isActive ? "highlight" : "")
         }
         to="/"
         onClick={closeMenu ? closeMenu : () => {}}
@@ -15,7 +15,7 @@ const NavLinks = ({ closeMenu }) => {
       </NavLink>
       <NavLink
         className={({ isActive }) =>
-          "navLink my-2 md:my-0 " + (isActive ? "highlight" : "")
+          "navLink my-2 lg:my-0 " + (isActive ? "highlight" : "")
         }
         to="/about"
         onClick={closeMenu ? closeMenu : () => {}}
@@ -25,7 +25,7 @@ const NavLinks = ({ closeMenu }) => {
       </NavLink>
       <NavLink
         className={({ isActive }) =>
-          "navLink my-2 md:my-0 " + (isActive ? "highlight" : "")
+          "navLink my-2 lg:my-0 " + (isActive ? "highlight" : "")
         }
         to="/projects"
         onClick={closeMenu ? closeMenu : () => {}}
@@ -35,7 +35,7 @@ const NavLinks = ({ closeMenu }) => {
       </NavLink>
       <NavLink
         className={({ isActive }) =>
-          "navLink my-2 md:my-0 " + (isActive ? "highlight" : "")
+          "navLink my-2 lg:my-0 " + (isActive ? "highlight" : "")
         }
         to="/resume"
         onClick={closeMenu ? closeMenu : () => {}}
@@ -45,7 +45,7 @@ const NavLinks = ({ closeMenu }) => {
       </NavLink>
       <NavLink
         to="/contact"
-        className="my-2 md:my-0 py-1 px-3 text-lg border border-pink-300/60 rounded-lg text-pink-300 hover:bg-pink-300 hover:text-black"
+        className="my-2 lg:my-0 py-1 px-3 text-lg border border-pink-300/60 rounded-lg text-pink-300 hover:bg-pink-300 hover:text-black"
         onClick={closeMenu ? closeMenu : () => {}}
       >
         Say Hi!

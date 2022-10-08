@@ -1,3 +1,4 @@
+import DownloadResume from "./DownloadResume";
 import SocialLinks from "./SocialLinks";
 
 const KeepInTouch = () => {
@@ -7,6 +8,9 @@ const KeepInTouch = () => {
       <p className="text-lg p-6">Feel free to connect with me</p>
       <div className="flex justify-center gap-4 text-pink-600">
         <SocialLinks />
+      </div>
+      <div className="mt-10 flex justify-center gap-4">
+        <DownloadResume/>
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import Introduce from "./Introduce";
 import SocialLinks from "./SocialLinks";
 import Greeting from "../miscellaneous/Greeting";
 import KeepInTouch from "./KeepInTouch";
+import DownloadResume from "./DownloadResume";
 
 const Home = () => {
   return (
@@ -22,6 +23,9 @@ const Home = () => {
             </div>
             <div className="mt-10 flex justify-center md:justify-start gap-4 text-pink-600">
               <SocialLinks />
+            </div>
+            <div className="mt-10 flex justify-center md:justify-start gap-4">
+              <DownloadResume/>
             </div>
           </div>
           <img
