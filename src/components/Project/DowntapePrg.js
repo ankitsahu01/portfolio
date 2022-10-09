@@ -3,16 +3,16 @@ import DowntapeImg from "../../assets/project-downtape.png";
 const DowntapePrg = () => {
   return (
     <>
-      <img src={DowntapeImg} alt="Downtape prject pic" />
-      <div className="col-span-2 p-2 mb-10 md:mb-0">
-        <h2 className="text-5xl highlight mb-2">Downtape</h2>
+      <img src={DowntapeImg} alt="Downtape prject pic" className="sm:w-3/4 md:w-full" />
+      <div className="col-span-2 p-2 mb-24 md:mb-0">
+        <h2 className="text-4xl md:text-5xl highlight mb-2">Downtape</h2>
         <p>
           Build to download videos of Youtube, Instagram, Twitter, and Vimeo. To
           download videos, only one thing is needed that is video link, project
           will show you all the possible formats and sizes of video which you
           can download from there directly.
         </p>
-        <p className="mt-3">
+        <p className="mt-3 font-normal">
           Build Using: HTML, CSS, JavaScript, React js, Material UI, and Express
           js as a backend.
         </p>

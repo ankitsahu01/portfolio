@@ -3,9 +3,9 @@ import TalkgramImg from "../../assets/project-talkgram.png";
 const TalkgramPrg = () => {
   return (
     <>
-      <img src={TalkgramImg} alt="Talkgram prject pic" />
-      <div className="col-span-2 p-2 mb-10 md:mb-0">
-        <h2 className="text-5xl highlight mb-2">TalkGram</h2>
+      <img src={TalkgramImg} alt="Talkgram prject pic" className="sm:w-3/4 md:w-full" />
+      <div className="col-span-2 p-2 mb-24 md:mb-0">
+        <h2 className="text-4xl md:text-5xl highlight mb-2">TalkGram</h2>
         <p>
           It's a chat web app, users can use Google Login or can login with the
           credentials they provided at the time of Signup. Users need to verify
@@ -15,7 +15,7 @@ const TalkgramPrg = () => {
           chat is also there, so multiple users can interact by creating a
           group.
         </p>
-        <p className="mt-3">
+        <p className="mt-3 font-normal">
           Built using: Socket.io, ReactJS, Redux, MaterialUI, NodeJS, ExpressJS,
           and MongoDB.
         </p>
