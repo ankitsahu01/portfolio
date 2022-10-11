@@ -3,15 +3,21 @@ import TalkgramImg from "../../assets/project-talkgram.png";
 const TalkgramPrg = () => {
   return (
     <>
-      <img src={TalkgramImg} alt="Talkgram prject pic" className="sm:w-3/4 md:w-full" />
+      <img
+        src={TalkgramImg}
+        alt="Talkgram prject pic"
+        className="sm:w-3/4 md:w-full"
+      />
       <div className="col-span-2 p-2 mb-24 md:mb-0">
         <h2 className="text-4xl md:text-5xl highlight mb-2">TalkGram</h2>
         <p>
-          It's a chat web app, users can use Google Login or can login with the
-          credentials they provided at the time of Signup. Users need to verify
-          their email by entering OTP at the end of Signup process. In this
-          project, users can search other people those are having account on
-          TalkGram and they simply start their conversation with them. Group
+          This is a web-based chat application developed using{" "}
+          <span className="highlight">MERN</span> technology. Users can use
+          Google Login or login with the credentials they provided at the time
+          of SignUp. Users will need to verify their email by entering the
+          one-time password at the end of the registration process. In this
+          project, users can look for other people who have an account on
+          TalkGram and they simply begin their conversation with them. Group
           chat is also there, so multiple users can interact by creating a
           group.
         </p>

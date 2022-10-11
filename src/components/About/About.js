@@ -18,16 +18,19 @@ const About = () => {
             University, Indore.
           </p>
           <p className="mb-4">
-            I'm a <span className="highlight">Full Stack Developer</span>{" "}
-            building the Websites and Web Applications that leads to the success
-            of the overall product. Check out some of my work in the{" "}
-            <span className="highlight">Projects</span> section.
+            I'm a <span className="highlight">Full Stack Developer</span> build
+            the Websites and Web Applications that leads to the success of the
+            overall product. Take a glance at my work in the{" "}
+            <Link className="underline highlight" to="/projects">
+              Projects
+            </Link>{" "}
+            section.
           </p>
           <p className="mb-4">
             I'm open to <span className="highlight">Job</span> opportunities
-            where I can contribute, learn and grow. If you have a good
-            opportunity that matches my skills and experience then don't
-            hesitate to{" "}
+            where I can contribute, learn and thrive. If you have a great
+            opportunity that aligns with my skills and experience, then do not
+            hesitate to {" "}
             <Link className="underline highlight" to="/contact">
               contact me
             </Link>

@@ -16,7 +16,7 @@ const SocialLinks = () => {
         <Github className="w-10 h-10 p-2" />
       </a>
       <a
-        href="www.linkedin.com/in/ankit-sahu-Ind"
+        href="https://www.linkedin.com/in/ankit-sahu-Ind"
         target="_blank"
         className="rounded-lg bg-white/80 hover:bg-pink-600 hover:text-white/80"
       >

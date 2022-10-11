@@ -9,11 +9,12 @@ const Content = () => {
           <h2 className="text-3xl md:text-4xl text-center">
             LET ME <span className="highlight">INTRODUCE</span> MYSELF
           </h2>
-          <ul className="marker:text-pink-500 list-disc space-y-9 pt-6 md:pt-8 list-inside">
+          <ul className="marker:text-pink-500 list-disc space-y-8 pt-6 md:pt-8 pl-4">
             <li>
-              From my teenage, I always got curious about how things works on
-              Internet then I started my journey with C language. I found
-              interest in coding then it became my passion.
+              Since my adolescence, I have always become curious about how
+              things work on the Internet, and then I began my journey with the
+              C language. I developed an interest in coding, so it became my
+              passion.
             </li>
             <li>
               I am fluent in classics like{" "}
@@ -21,7 +22,7 @@ const Content = () => {
             </li>
             <li>
               I <span className="highlight">self-learned</span> most of the
-              things of web development.
+              stuffs pertained to web development.
             </li>
             <li>
               My field of interest is building responsive Web Apps using{" "}
