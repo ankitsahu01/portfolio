@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Ankit Sahu Portfolio created using create-react-app"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
@@ -26,6 +26,12 @@
     -->
     <title>Ankit Sahu | Portfolio</title>
     <script id="react-dotenv" src="./env.js"></script>
+    <script>
+      if (typeof window.__REACT_DEVTOOLS_GLOBAL_HOOK__ === "object") {
+        // Prevent to load react_devtools_backend.js in production (App will load fast in production)
+        __REACT_DEVTOOLS_GLOBAL_HOOK__.inject = function () {};
+      }
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
