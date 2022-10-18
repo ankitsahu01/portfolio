@@ -1,4 +1,4 @@
-import DownloadResume from "./DownloadResume";
+import DownloadResume from "../DownloadResume";
 import SocialLinks from "./SocialLinks";
 
 const KeepInTouch = () => {

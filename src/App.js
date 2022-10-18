@@ -8,7 +8,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <div id="app" className="text-white/90 font-extralight">
+      <div id="app" className="scroll-smooth text-white/90 font-extralight">
         <DotParticles />
         <CustomRoutes />
       </div>

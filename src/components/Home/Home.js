@@ -4,7 +4,7 @@ import Introduce from "./Introduce";
 import SocialLinks from "./SocialLinks";
 import Greeting from "../miscellaneous/Greeting";
 import KeepInTouch from "./KeepInTouch";
-import DownloadResume from "./DownloadResume";
+import DownloadResume from "../DownloadResume";
 
 const Home = () => {
   return (
