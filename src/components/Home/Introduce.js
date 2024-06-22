@@ -1,15 +1,32 @@
+import { Link } from "react-router-dom";
 import Image from "../../assets/img_hero-4.png";
-import SocialLinks from "./SocialLinks";
 
 const Content = () => {
   return (
     <>
       <div className="h-1/2 pt-14 md:pt-0 flex flex-col md:flex-row items-center justify-evenly gap-10">
-        <div className="bg-pink-900/20 rounded-none md:rounded-lg w-full md:w-1/2 p-3 text-xl">
+        <div className="bg-pink-900/20 rounded-none md:rounded-lg w-full md:w-1/2 px-4 py-6 text-xl">
           <h2 className="text-3xl md:text-4xl text-center">
             LET ME <span className="highlight">INTRODUCE</span> MYSELF
           </h2>
           <ul className="marker:text-pink-500 list-disc space-y-8 pt-6 md:pt-8 pl-4">
+            <li>
+              I am having more than <span className="highlight">2 years</span>{" "}
+              of experience in web development.
+            </li>
+            <li>
+              I'm currently working as a
+              <span className="highlight"> Web Developer </span>
+              at{" "}
+              <Link
+                className="underline highlight"
+                to="https://www.linkedin.com/company/fitpeo"
+              >
+                FitPeo
+              </Link>{" "}
+              where I build and manage the Web Portals that leads to the success
+              of the overall product.
+            </li>
             <li>
               Since my adolescence, I have always become curious about how
               things work on the Internet, and then I began my journey with the

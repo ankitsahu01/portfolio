@@ -15,7 +15,7 @@ const Footer = () => {
 
       <div className="bg-rose-800 py-6 px-2 md:px-20 text-white flex flex-col md:flex-row gap-2 items-center md:justify-between">
         <p className="text-lg">Developed by Ankit Sahu</p>
-        <div className="text-sm opacity-90 pb-6 md:pb-0">Copyright © 2022</div>
+        <div className="text-sm opacity-90 pb-6 md:pb-0">Copyright © 2024</div>
         <div className="flex gap-6">
           <a href="https://github.com/ankitsahu01" target="_blank">
             <Github size="1.5em" />
