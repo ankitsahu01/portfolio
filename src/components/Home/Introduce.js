@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Image from "../../assets/img_hero-4.png";
 
 const Content = () => {
@@ -18,12 +17,13 @@ const Content = () => {
               I'm currently working as a
               <span className="highlight"> Web Developer </span>
               at{" "}
-              <Link
+              <a
                 className="underline highlight"
-                to="https://www.linkedin.com/company/fitpeo"
+                target="_blank"
+                href="https://www.linkedin.com/company/fitpeo"
               >
                 FitPeo
-              </Link>{" "}
+              </a>{" "}
               where I build and manage the Web Portals that leads to the success
               of the overall product.
             </li>

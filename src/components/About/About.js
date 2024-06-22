@@ -18,14 +18,15 @@ const About = () => {
           </p>
           <p className="mb-4">
             I'm currently working as a{" "}
-            <span className="highlight">Web Developer</span>
+            <span className="highlight">Web Developer </span>
             at{" "}
-            <Link
+            <a
               className="underline highlight"
-              to="https://www.linkedin.com/company/fitpeo"
+              target="_blank"
+              href="https://www.linkedin.com/company/fitpeo"
             >
               FitPeo
-            </Link>{" "}
+            </a>{" "}
             where I build and manage the Web Portals that leads to the success
             of the overall product.
           </p>
