@@ -10,6 +10,7 @@ const Contact = () => {
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(null);
 
   const inputHandler = (e) => {
     let name = e.target.name,
@@ -25,6 +26,7 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
     setSuccess(false);
+    setError(null);
     emailjs
       .send(
         process.env.REACT_APP_EMAILJS_SERVICE_ID,
@@ -41,6 +43,7 @@ const Contact = () => {
         function (error) {
           console.log("FAILED...", error);
           setLoading(false);
+          setError(error);
         }
       );
   };
@@ -85,7 +88,7 @@ const Contact = () => {
             required
           />
         </label>
-        <label className="block mb-6">
+        <label className="block mb-4">
           <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm text-white/90">
             Message
           </span>
@@ -98,16 +101,19 @@ const Contact = () => {
             required
           ></textarea>
         </label>
-        <div className="flex justify-between items-center">
-          <p
-            className="text-sm text-white/90"
-            style={{ visibility: success ? "visible" : "hidden" }}
-          >
-            Thank you for your message.
+
+        {error && (
+          <p className="text-sm text-red-400">
+            Something went wrong, will fix it soon.
           </p>
+        )}
+        {success && (
+          <p className="text-sm text-white/90">Thank you for your message.</p>
+        )}
+        <div className="mt-2 flex justify-end">
           <button
             type="submit"
-            className="justify-self-end py-1 px-3 text-lg text-white font-semibold rounded-lg bg-pink-500 hover:bg-pink-700 disabled:bg-slate-600"
+            className="py-1 px-3 text-lg text-white font-semibold rounded-lg bg-pink-500 hover:bg-pink-700 disabled:bg-slate-600"
             disabled={loading}
           >
             {loading ? "Sending" : "Submit"}

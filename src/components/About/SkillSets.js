@@ -5,7 +5,7 @@ import { CgCPlusPlus } from "react-icons/cg";
 
 const SkillSets = () => {
   return (
-    <div className="py-20 md:pt-0">
+    <div className="py-5">
       <h2 className="text-4xl md:text-5xl text-center font-bold mb-10">
         My <span className="highlight">Skillsets</span>
       </h2>
