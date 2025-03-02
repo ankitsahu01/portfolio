@@ -27,11 +27,11 @@ const TalkgramPrg = () => {
         </p>
         <div className="mt-4 flex gap-4 flex-col md:flex-row text-left text-xl font-medium text-blue-500 underline underline-offset-2">
           <a
-            href="https://talkgram.herokuapp.com/"
+            href="https://talkgram.onrender.com/"
             target="_blank"
             className="hover:text-blue-600"
           >
-            [ visit: talkgram.herokuapp.com ]
+            [ visit: talkgram.onrender.com ]
           </a>
           <a
             href="https://github.com/ankitsahu01/talkgram"
