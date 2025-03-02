@@ -19,7 +19,7 @@ function IntroduceList() {
           target="_blank"
           href="https://www.linkedin.com/company/fitpeo"
         >
-          FitPeo
+          FitPeo Tech Private Limited
         </a>
         .
       </li>
@@ -54,7 +54,7 @@ function IntroduceList() {
         concept.
       </li>
       <li>
-        Published a large feature to private{" "}
+        Published a large feature as private{" "}
         <span className="highlight"> NPM package</span> to reuse it across all
         web portals.
       </li>

@@ -33,3 +33,12 @@ body {
   font-weight: 500;
   color: rgb(219 39 119);
 }
+
+/* SkillSets, ToolSets */
+.iconCard {
+  transition: transform 0.3s;
+}
+
+.iconCard:hover {
+  transform: translateY(-0.3rem);
+}

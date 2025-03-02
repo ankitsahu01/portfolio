@@ -1,10 +1,14 @@
+import { lazy, Suspense } from "react";
 import Type from "./Type";
 import Image from "../../assets/img_hero-7.png";
-import Introduce from "./Introduce";
 import SocialLinks from "./SocialLinks";
 import Greeting from "../miscellaneous/Greeting";
-import KeepInTouch from "./KeepInTouch";
 import DownloadResume from "../DownloadResume";
+
+const Introduce = lazy(() => import("./Introduce"));
+const SkillSets = lazy(() => import("../About/SkillSets"));
+const ToolSets = lazy(() => import("../About/ToolSets"));
+const KeepInTouch = lazy(() => import("./KeepInTouch"));
 
 const Home = () => {
   return (
@@ -25,7 +29,7 @@ const Home = () => {
               <SocialLinks />
             </div>
             <div className="mt-10 flex justify-center md:justify-start gap-4">
-              <DownloadResume/>
+              <DownloadResume />
             </div>
           </div>
           <img
@@ -34,8 +38,12 @@ const Home = () => {
             className="p-8 w-auto sm:w-1/2 lg:w-1/3"
           />
         </div>
-        <Introduce />
-        <KeepInTouch />
+        <Suspense>
+          <Introduce />
+          <SkillSets />
+          <ToolSets />
+          <KeepInTouch />
+        </Suspense>
       </main>
     </>
   );

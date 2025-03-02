@@ -1,10 +1,11 @@
-import "./AboutStyles.css";
+import { lazy, Suspense } from "react";
 import Image from "../../assets/img_hero-5.png";
 import { Link } from "react-router-dom";
 import Greeting from "../miscellaneous/Greeting";
-import SkillSets from "./SkillSets";
-import ToolSets from "./ToolSets";
 import IntroduceList from "../Home/IntroduceList";
+
+const SkillSets = lazy(() => import("./SkillSets"));
+const ToolSets = lazy(() => import("./ToolSets"));
 
 const About = () => {
   return (
@@ -39,8 +40,10 @@ const About = () => {
           <img src={Image} alt="about pic" />
         </div>
       </div>
-      <SkillSets />
-      <ToolSets />
+      <Suspense>
+        <SkillSets />
+        <ToolSets />
+      </Suspense>
     </>
   );
 };
