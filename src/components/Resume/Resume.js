@@ -1,6 +1,6 @@
+"use client";
 import { useState, useEffect } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
-import resume from "../../assets/resume.pdf";
 import DownloadResume from "../DownloadResume";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
@@ -17,7 +17,7 @@ const Resume = () => {
       <div className="pt-24 flex justify-center gap-4">
         <DownloadResume />
       </div>
-      <Document file={resume} className="py-6 flex justify-center">
+      <Document file="/resume.pdf" className="py-6 flex justify-center">
         <Page
           pageNumber={1}
           scale={width > 786 ? 1.7 : 0.6}

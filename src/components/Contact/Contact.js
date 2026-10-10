@@ -1,3 +1,4 @@
+"use client";
 import Map from "../../assets/map.png";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
@@ -29,10 +30,10 @@ const Contact = () => {
     setError(null);
     emailjs
       .send(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
         data,
-        process.env.REACT_APP_EMAILJS_USER_ID
+        process.env.NEXT_PUBLIC_EMAILJS_USER_ID
       )
       .then(
         function (response) {
@@ -51,7 +52,7 @@ const Contact = () => {
   return (
     <div
       className="min-h-screen pt-20"
-      style={{ backgroundImage: `url(${Map})` }}
+      style={{ backgroundImage: `url(${Map.src})` }}
     >
       <form
         className="bg-[rgba(255,255,255,0.1)] border border-white/20 backdrop-blur-sm rounded-lg pb-6 px-4 m-8 mx-auto text-black font-medium w-[90%] md:w-1/2"

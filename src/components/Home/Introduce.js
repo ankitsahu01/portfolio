@@ -11,7 +11,7 @@ const Content = () => {
           </h2>
           <IntroduceList />
         </div>
-        <img src={Image} alt="home pic2" className="w-2/3 sm:w-2/5 lg:w-1/5" />
+        <img src={Image.src} alt="home pic2" className="w-2/3 sm:w-2/5 lg:w-1/5" />
       </div>
     </>
   );

@@ -1,14 +1,14 @@
-import { lazy, Suspense } from "react";
+
 import Type from "./Type";
 import Image from "../../assets/img_hero-7.png";
 import SocialLinks from "./SocialLinks";
 import Greeting from "../miscellaneous/Greeting";
 import DownloadResume from "../DownloadResume";
 
-const Introduce = lazy(() => import("./Introduce"));
-const SkillSets = lazy(() => import("../About/SkillSets"));
-const ToolSets = lazy(() => import("../About/ToolSets"));
-const KeepInTouch = lazy(() => import("./KeepInTouch"));
+import Introduce from "./Introduce";
+import SkillSets from "../About/SkillSets";
+import ToolSets from "../About/ToolSets";
+import KeepInTouch from "./KeepInTouch";
 
 const Home = () => {
   return (
@@ -33,17 +33,15 @@ const Home = () => {
             </div>
           </div>
           <img
-            src={Image}
+            src={Image.src}
             alt="home pic"
             className="p-8 w-auto sm:w-1/2 lg:w-1/3"
           />
         </div>
-        <Suspense>
           <Introduce />
           <SkillSets />
           <ToolSets />
           <KeepInTouch />
-        </Suspense>
       </main>
     </>
   );
