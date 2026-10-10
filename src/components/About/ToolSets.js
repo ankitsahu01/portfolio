@@ -12,13 +12,13 @@ const ToolSets = () => {
         <span className="highlight">Tools</span> I use
       </h2>
       <div className="px-2 md:px-8 grid grid-cols-2 md:grid-cols-4 gap-16 justify-items-center items-center">
-        <img src={vscodeImg} width={50} className="iconCard" title="VS Code" />
-        <img src={gitlabImg} width={50} className="iconCard" title="GitLab" />
-        <img src={postmanImg} width={60} className="iconCard" title="Postman" />
-        <img src={jiraImg} width={50} className="iconCard" title="Jira" />
-        <img src={slackImg} width={50} className="iconCard" title="Slack" />
+        <img src={vscodeImg.src} width={50} className="iconCard" title="VS Code" />
+        <img src={gitlabImg.src} width={50} className="iconCard" title="GitLab" />
+        <img src={postmanImg.src} width={60} className="iconCard" title="Postman" />
+        <img src={jiraImg.src} width={50} className="iconCard" title="Jira" />
+        <img src={slackImg.src} width={50} className="iconCard" title="Slack" />
         <img
-          src={teamsImg}
+          src={teamsImg.src}
           width={50}
           className="iconCard"
           title="Microsoft Teams"

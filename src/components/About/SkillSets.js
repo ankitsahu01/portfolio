@@ -20,35 +20,35 @@ const SkillSets = () => {
         <span className="highlight">Skillsets</span> I have
       </h2>
       <div className="px-2 md:px-8 grid grid-cols-2 md:grid-cols-5 gap-16 justify-items-center items-center">
-        <img src={reactImg} width={50} className="iconCard" title="React.js" />
-        <img src={jsImg} width={50} className="iconCard" title="JavaScript" />
+        <img src={reactImg.src} width={50} className="iconCard" title="React.js" />
+        <img src={jsImg.src} width={50} className="iconCard" title="JavaScript" />
         <img
-          src={typescriptImg}
+          src={typescriptImg.src}
           width={50}
           className="iconCard"
           title="TypeScript"
         />
-        <img src={nextjsImg} width={70} className="iconCard" title="Next.js" />
+        <img src={nextjsImg.src} width={70} className="iconCard" title="Next.js" />
         <img
-          src={reduxImg}
+          src={reduxImg.src}
           width={50}
           className="iconCard"
           title="Redux State Management"
         />
-        <img src={htmlImg} width={50} className="iconCard" title="HTML5" />
-        <img src={cssImg} width={50} className="iconCard" title="CSS3" />
-        <img src={gitImg} width={50} className="iconCard" title="Git" />
-        <img src={nodejsImg} width={70} className="iconCard" title="Node.js" />
+        <img src={htmlImg.src} width={50} className="iconCard" title="HTML5" />
+        <img src={cssImg.src} width={50} className="iconCard" title="CSS3" />
+        <img src={gitImg.src} width={50} className="iconCard" title="Git" />
+        <img src={nodejsImg.src} width={70} className="iconCard" title="Node.js" />
         <img
-          src={expressjsImg}
+          src={expressjsImg.src}
           width={50}
           className="iconCard"
           title="Express.js"
         />
-        <img src={mongodbImg} width={55} className="iconCard" title="mongoDB" />
-        <img src={phpImg} width={50} className="iconCard" title="PHP" />
-        <img src={mysqlImg} width={70} className="iconCard" title="mySql" />
-        <img src={cppImg} width={50} className="iconCard" title="C++" />
+        <img src={mongodbImg.src} width={55} className="iconCard" title="mongoDB" />
+        <img src={phpImg.src} width={50} className="iconCard" title="PHP" />
+        <img src={mysqlImg.src} width={70} className="iconCard" title="mySql" />
+        <img src={cppImg.src} width={50} className="iconCard" title="C++" />
       </div>
     </div>
   );

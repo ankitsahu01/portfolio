@@ -4,7 +4,7 @@ const TalkgramPrg = () => {
   return (
     <>
       <img
-        src={TalkgramImg}
+        src={TalkgramImg.src}
         alt="Talkgram prject pic"
         className="sm:w-3/4 md:w-full"
       />

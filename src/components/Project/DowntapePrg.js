@@ -3,7 +3,7 @@ import DowntapeImg from "../../assets/project-downtape.png";
 const DowntapePrg = () => {
   return (
     <>
-      <img src={DowntapeImg} alt="Downtape prject pic" className="sm:w-3/4 md:w-full" />
+      <img src={DowntapeImg.src} alt="Downtape prject pic" className="sm:w-3/4 md:w-full" />
       <div className="col-span-2 p-2 mb-24 md:mb-0">
         <h2 className="text-4xl md:text-5xl highlight mb-2">Downtape</h2>
         <p>

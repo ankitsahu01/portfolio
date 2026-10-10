@@ -1,6 +1,7 @@
+"use client";
 import { useState, useEffect } from "react";
 import "./headerStyle.css";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { FaBars } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import NavLinks from "./NavLinks";
@@ -35,7 +36,7 @@ const Header = () => {
       <div className="flex my-3 md:my-3">
         <div className="edgeEffectContainer">
           <h1 className="my-auto text-3xl font-bold">
-            <Link to="/" onClick={closeMenu}>
+            <Link href="/" onClick={closeMenu}>
               AS.
             </Link>
           </h1>

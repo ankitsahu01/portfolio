@@ -1,11 +1,11 @@
-import { lazy, Suspense } from "react";
+
 import Image from "../../assets/img_hero-5.png";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import Greeting from "../miscellaneous/Greeting";
 import IntroduceList from "../Home/IntroduceList";
 
-const SkillSets = lazy(() => import("./SkillSets"));
-const ToolSets = lazy(() => import("./ToolSets"));
+import SkillSets from "./SkillSets";
+import ToolSets from "./ToolSets";
 
 const About = () => {
   return (
@@ -30,20 +30,18 @@ const About = () => {
             where I can contribute, learn and thrive. If you have a great
             opportunity that aligns with my skills and experience, then do not
             hesitate to{" "}
-            <Link className="underline highlight" to="/contact">
+            <Link className="underline highlight" href="/contact">
               contact me
             </Link>
             .
           </p>
         </div>
         <div className="w-3/4 sm:w-2/4 lg:w-1/3 md:min-h-screen flex items-center">
-          <img src={Image} alt="about pic" />
+          <img src={Image.src} alt="about pic" />
         </div>
       </div>
-      <Suspense>
         <SkillSets />
         <ToolSets />
-      </Suspense>
     </>
   );
 };
