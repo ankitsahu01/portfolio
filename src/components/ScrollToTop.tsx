@@ -11,18 +11,22 @@ const ScrollToTop = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [pathname]);
 
-  const toggleVisible = () => {
-    const scrolled =
-      document.documentElement.scrollTop ||
-      window.scrollY ||
-      document.body.scrollTop;
-    if (scrolled > 300) setVisible(true);
-    else setVisible(false);
-  };
-  
   useEffect(() => {
-    window.addEventListener("scroll", toggleVisible);
-    return () => window.removeEventListener("scroll", toggleVisible);
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrolled =
+            window.scrollY || document.documentElement.scrollTop;
+          setVisible(scrolled > 300);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (

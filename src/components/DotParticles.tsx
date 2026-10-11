@@ -12,7 +12,7 @@ const generateSingleDot = (e) => {
     yAxis = e.clientY,
     node = document.createElement("span");
 
-  node.className = "h-0.5 w-0.5 bg-pink-300 rounded animate-pulse fixed";
+  node.className = "h-0.5 w-0.5 bg-pink-300 rounded animate-pulse fixed pointer-events-none";
   node.style = `top:${yAxis}px; left:${xAxis}px`;
   document.getElementById("app").appendChild(node);
 
@@ -36,22 +36,17 @@ const DotBackground = () => {
   const [dots, setDots] = useState([]);
 
   useEffect(() => {
+    const handleResize = () => setDots(generateNthDots(TOTAL_PARTICLES));
     setDots(generateNthDots(TOTAL_PARTICLES));
-    window.removeEventListener("resize", () =>
-      setDots(generateNthDots(TOTAL_PARTICLES))
-    );
-    return window.addEventListener("resize", () =>
-      setDots(generateNthDots(TOTAL_PARTICLES))
-    );
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
-    document
-      .getElementById("app")
-      .removeEventListener("click", generateSingleDot);
-    return document
-      .getElementById("app")
-      .addEventListener("click", generateSingleDot);
+    const app = document.getElementById("app");
+    if (!app) return;
+    app.addEventListener("click", generateSingleDot);
+    return () => app.removeEventListener("click", generateSingleDot);
   }, []);
 
   return (
@@ -60,7 +55,7 @@ const DotBackground = () => {
         dots.map((dot, index) => (
           <span
             key={index}
-            className="h-0.5 w-0.5 bg-pink-300/40 rounded animate-pulse fixed"
+            className="h-0.5 w-0.5 bg-pink-300/40 rounded animate-pulse fixed pointer-events-none"
             style={{ top: dot.top, left: dot.left }}
           ></span>
         ))}

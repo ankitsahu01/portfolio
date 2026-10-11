@@ -28,14 +28,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth">
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/logo192.png" />
       </head>
       <body>
         <Header />
-        <div id="app" className="scroll-smooth text-white/90 font-extralight min-h-screen">
+        <div id="app" className="text-white/90 font-extralight min-h-screen">
           <DotParticles />
           <NextTopLoader
             color='#db2777'
