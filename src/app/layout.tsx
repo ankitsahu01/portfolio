@@ -5,6 +5,7 @@ import DotParticles from "../components/DotParticles";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
+import ChatBot from "../components/Chat/ChatBot";
 import NextTopLoader from 'nextjs-toploader';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata, Viewport } from 'next';
@@ -47,6 +48,7 @@ export default function RootLayout({
         </div>
         <Footer />
         <ScrollToTop />
+        <ChatBot />
         <SpeedInsights />
       </body>
     </html>
