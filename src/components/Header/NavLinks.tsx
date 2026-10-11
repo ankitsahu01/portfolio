@@ -3,7 +3,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FaHome, FaUserAlt, FaCode, FaFilePdf } from "react-icons/fa";
 
-const NavLinks = ({ closeMenu }) => {
+interface NavLinksProps {
+  closeMenu?: () => void;
+}
+
+const NavLinks: React.FC<NavLinksProps> = ({ closeMenu }) => {
   const pathname = usePathname();
   return (
     <>
