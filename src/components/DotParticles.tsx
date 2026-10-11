@@ -1,66 +1,127 @@
 "use client";
-import { useState, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 
-const TOTAL_PARTICLES = 200;
+interface Particle {
+  x: number;
+  y: number;
+  radius: number;
+  alpha: number;
+  alphaSpeed: number;
+  vy: number;
+}
 
-const getRandomInt = (max) => {
-  return Math.floor(Math.random() * max);
-};
+interface ClickParticle {
+  x: number;
+  y: number;
+  radius: number;
+  alpha: number;
+  life: number;
+}
 
-const generateSingleDot = (e) => {
-  const xAxis = e.clientX,
-    yAxis = e.clientY,
-    node = document.createElement("span");
+const TOTAL_PARTICLES = 100;
 
-  node.className = "h-0.5 w-0.5 bg-pink-300 rounded animate-pulse fixed pointer-events-none";
-  node.style = `top:${yAxis}px; left:${xAxis}px`;
-  document.getElementById("app").appendChild(node);
-
-  setTimeout(() => {
-    document.getElementById("app").removeChild(node);
-  }, 2000);
-};
-
-const generateNthDots = (quantity) => {
-  let dotsAxis = [];
-  for (let i = 0; i < quantity; i++) {
-    dotsAxis.push({
-      top: getRandomInt(window.screen.availHeight) + "px",
-      left: getRandomInt(window.screen.availWidth) + "px",
-    });
-  }
-  return dotsAxis;
-};
-
-const DotBackground = () => {
-  const [dots, setDots] = useState([]);
+const DotParticles: React.FC = () => {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
-    const handleResize = () => setDots(generateNthDots(TOTAL_PARTICLES));
-    setDots(generateNthDots(TOTAL_PARTICLES));
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let animationFrameId: number;
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    const particles: Particle[] = Array.from({ length: TOTAL_PARTICLES }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      radius: Math.random() * 1.2 + 0.6,
+      alpha: Math.random() * 0.7 + 0.2,
+      alphaSpeed: (Math.random() * 0.01 + 0.005) * (Math.random() > 0.5 ? 1 : -1),
+      vy: Math.random() * 0.2 + 0.05,
+    }));
+
+    const clickParticles: ClickParticle[] = [];
+
+    const handleResize = () => {
+      if (!canvas) return;
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    };
+
+    const handleClick = (e: MouseEvent) => {
+      clickParticles.push({
+        x: e.clientX,
+        y: e.clientY,
+        radius: 2,
+        alpha: 1,
+        life: 1,
+      });
+    };
+
+    const render = () => {
+      ctx.clearRect(0, 0, width, height);
+
+      // Render ambient floating/twinkling dots
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+
+        p.alpha += p.alphaSpeed;
+        if (p.alpha <= 0.1 || p.alpha >= 0.8) {
+          p.alphaSpeed = -p.alphaSpeed;
+        }
+
+        p.y -= p.vy;
+        if (p.y < 0) {
+          p.y = height;
+          p.x = Math.random() * width;
+        }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(244, 114, 182, ${Math.max(0, Math.min(1, p.alpha))})`;
+        ctx.fill();
+      }
+
+      // Render click ripple particles
+      for (let i = clickParticles.length - 1; i >= 0; i--) {
+        const cp = clickParticles[i];
+        cp.life -= 0.02;
+        cp.radius += 0.3;
+        cp.alpha = Math.max(0, cp.life);
+
+        ctx.beginPath();
+        ctx.arc(cp.x, cp.y, cp.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(244, 114, 182, ${cp.alpha})`;
+        ctx.fill();
+
+        if (cp.life <= 0) {
+          clickParticles.splice(i, 1);
+        }
+      }
+
+      animationFrameId = requestAnimationFrame(render);
+    };
+
+    render();
+
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    window.addEventListener("click", handleClick);
 
-  useEffect(() => {
-    const app = document.getElementById("app");
-    if (!app) return;
-    app.addEventListener("click", generateSingleDot);
-    return () => app.removeEventListener("click", generateSingleDot);
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("click", handleClick);
+    };
   }, []);
 
   return (
-    <>
-      {dots &&
-        dots.map((dot, index) => (
-          <span
-            key={index}
-            className="h-0.5 w-0.5 bg-pink-300/40 rounded animate-pulse fixed pointer-events-none"
-            style={{ top: dot.top, left: dot.left }}
-          ></span>
-        ))}
-    </>
+    <canvas
+      ref={canvasRef}
+      className="fixed inset-0 pointer-events-none z-0"
+    />
   );
 };
 
-export default DotBackground;
+export default DotParticles;
