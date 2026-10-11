@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FaHome, FaUserAlt, FaCode, FaFilePdf } from "react-icons/fa";
+import { FaHome, FaUserAlt, FaCode, FaFilePdf, FaAward } from "react-icons/fa";
 
 interface NavLinksProps {
   closeMenu?: () => void;
@@ -39,6 +39,17 @@ const NavLinks: React.FC<NavLinksProps> = ({ closeMenu }) => {
       >
         <FaCode className="my-auto mx-1" />
         Projects
+      </Link>
+      <Link
+        className={
+          "navLink my-2 lg:my-0 " +
+          (pathname === "/certificates" ? "highlight" : "")
+        }
+        href="/certificates"
+        onClick={closeMenu ? closeMenu : () => {}}
+      >
+        <FaAward className="my-auto mx-1" />
+        Certificates
       </Link>
       <Link
         className={

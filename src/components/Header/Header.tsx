@@ -11,7 +11,7 @@ const Header = () => {
   const toggleMenu = () => {
     document.getElementById("mobileMenu").style.height = isMenuOpen
       ? "0"
-      : "15.5rem";
+      : "18.5rem";
     setMenuOpen(!isMenuOpen);
   };
   const closeMenu = () => {
@@ -43,7 +43,7 @@ const Header = () => {
           <div className="first"></div>
           <div className="second"></div>
         </div>
-        <nav className="hidden lg:flex grow items-center justify-end gap-20">
+        <nav className="hidden lg:flex grow items-center justify-end gap-8 xl:gap-14">
           <NavLinks />
         </nav>
         <div className="lg:hidden flex grow justify-end">
