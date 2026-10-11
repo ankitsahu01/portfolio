@@ -8,7 +8,7 @@ import ScrollToTop from "../components/ScrollToTop";
 
 export const metadata = {
   title: 'Ankit Sahu | Portfolio',
-  description: 'Ankit Sahu Portfolio created using Next.js',
+  description: 'Ankit Sahu | Software Engineer with 4+ years of full-stack experience, GenAI integration, and Cloud deployments.',
   manifest: "/manifest.json",
 }
 

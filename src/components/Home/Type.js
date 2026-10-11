@@ -7,16 +7,13 @@ const Type = () => {
     <Typewriter
       options={{
         strings: [
-          "Front-end Developer",
-          "React.JS",
-          "Next.JS",
-          "JavaScript",
-          "TypeScript",
-          "Remix.JS",
-          "APIs",
-          "MERN Stack Developer",
-          "Web Developer",
-          "Freelancer",
+          "Software Engineer",
+          "Full-Stack Developer",
+          "React.js & Next.js",
+          "TypeScript & JavaScript",
+          "GenAI Integration",
+          "Google Cloud (GCP)",
+          "Workflow Automation",
         ],
         autoStart: true,
         loop: true,
