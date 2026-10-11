@@ -6,6 +6,7 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import NextTopLoader from 'nextjs-toploader';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata = {
   title: 'Ankit Sahu | Portfolio',
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
         </div>
         <Footer />
         <ScrollToTop />
+        <SpeedInsights />
       </body>
     </html>
   );
