@@ -7,20 +7,26 @@ import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import NextTopLoader from 'nextjs-toploader';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import type { Metadata, Viewport } from 'next';
+import React from 'react';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Ankit Sahu | Portfolio',
   description: 'Ankit Sahu | Software Engineer with 4+ years of full-stack experience, GenAI integration, and Cloud deployments.',
   manifest: "/manifest.json",
-}
+};
 
-export const viewport = {
+export const viewport: Viewport = {
   themeColor: '#000000',
   width: 'device-width',
   initialScale: 1,
-}
+};
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <head>
