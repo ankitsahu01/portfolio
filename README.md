@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# Ankit Sahu | Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive personal portfolio built with **Next.js 14 (App Router)** and **Tailwind CSS**.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Tech Stack
 
-### `npm start`
+- **Framework:** [Next.js 14](https://nextjs.org/) (App Router)
+- **UI & Styling:** [React 18](https://react.dev/), [Tailwind CSS](https://tailwindcss.com/)
+- **Icons:** [React Icons](https://react-icons.github.io/react-icons/)
+- **Document Viewing:** [React PDF](https://github.com/wojtekmaj/react-pdf)
+- **Interactive Effects:** Typewriter Effect, HTML5 Canvas Particle Animation
+- **Email Service:** [EmailJS](https://www.emailjs.com/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ✨ Features
 
-### `npm test`
+- **Dynamic Hero Section:** Typewriter animations and interactive canvas particle background.
+- **About & Skills:** Comprehensive overview of tech stack, programming languages, and developer tools.
+- **Projects Showcase:** Highlighted web applications with live links and repository references.
+- **Resume Viewer:** In-browser PDF resume preview with direct download option.
+- **Contact Form:** Direct messaging form integrated with EmailJS.
+- **SEO & Performance:** Optimized SSR and metadata via Next.js App Router.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🛠️ Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Node.js](https://nodejs.org/) (version 18.17.0 or higher recommended)
+- `npm` or `yarn`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ankitsahu01/portfolio.git
+   cd portfolio
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Running Locally
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Start the development server:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm run dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the portfolio.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📜 Available Scripts
 
-### Code Splitting
+| Command | Description |
+| :--- | :--- |
+| `npm run dev` | Runs the Next.js development server at `localhost:3000` |
+| `npm run build` | Compiles the production build |
+| `npm run start` | Runs the compiled production build |
+| `npm run lint` | Runs Next.js ESLint to verify code quality |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 🌐 Connect with Me
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **GitHub:** [@ankitsahu01](https://github.com/ankitsahu01)
+- **LinkedIn:** [Ankit Sahu](https://www.linkedin.com/in/ankit-sahu-59a340b2/)
+- **Twitter / X:** [@sahu6856](https://twitter.com/sahu6856)
+- **Instagram:** [@ankitsahu03](https://www.instagram.com/ankitsahu03/)
