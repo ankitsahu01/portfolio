@@ -1,7 +1,6 @@
 import cppImg from "../../assets/skillsets/cpp.svg";
 import htmlImg from "../../assets/skillsets/html.svg";
 import cssImg from "../../assets/skillsets/css.svg";
-import phpImg from "../../assets/skillsets/php.svg";
 import jsImg from "../../assets/skillsets/javascript.svg";
 import reactImg from "../../assets/skillsets/react.svg";
 import typescriptImg from "../../assets/skillsets/typescript.svg";
@@ -10,8 +9,10 @@ import nextjsImg from "../../assets/skillsets/nextjs.png";
 import mongodbImg from "../../assets/skillsets/mongodb.svg";
 import mysqlImg from "../../assets/skillsets/mysql.svg";
 import nodejsImg from "../../assets/skillsets/nodejs.svg";
-import gitImg from "../../assets/skillsets/git.svg";
 import expressjsImg from "../../assets/skillsets/expressjs.svg";
+import gcpImg from "../../assets/skillsets/gcp.svg";
+import dockerImg from "../../assets/skillsets/docker.svg";
+import terraformImg from "../../assets/skillsets/terraform.svg";
 
 const SkillSets = () => {
   return (
@@ -20,7 +21,9 @@ const SkillSets = () => {
         <span className="highlight">Skillsets</span> I have
       </h2>
       <div className="px-2 md:px-8 grid grid-cols-2 md:grid-cols-5 gap-16 justify-items-center items-center">
+        <img src={nextjsImg.src} width={70} className="iconCard" title="Next.js" />
         <img src={reactImg.src} width={50} className="iconCard" title="React.js" />
+        <img src={gcpImg.src} width={60} className="iconCard" title="Google Cloud Project" />
         <img src={jsImg.src} width={50} className="iconCard" title="JavaScript" />
         <img
           src={typescriptImg.src}
@@ -28,16 +31,16 @@ const SkillSets = () => {
           className="iconCard"
           title="TypeScript"
         />
-        <img src={nextjsImg.src} width={70} className="iconCard" title="Next.js" />
         <img
           src={reduxImg.src}
           width={50}
           className="iconCard"
           title="Redux State Management"
         />
+        <img src={dockerImg.src} width={60} className="iconCard" title="Docker" />
+        <img src={terraformImg.src} width={60} className="iconCard" title="Terraform" />
         <img src={htmlImg.src} width={50} className="iconCard" title="HTML5" />
         <img src={cssImg.src} width={50} className="iconCard" title="CSS3" />
-        <img src={gitImg.src} width={50} className="iconCard" title="Git" />
         <img src={nodejsImg.src} width={70} className="iconCard" title="Node.js" />
         <img
           src={expressjsImg.src}
@@ -46,7 +49,6 @@ const SkillSets = () => {
           title="Express.js"
         />
         <img src={mongodbImg.src} width={55} className="iconCard" title="mongoDB" />
-        <img src={phpImg.src} width={50} className="iconCard" title="PHP" />
         <img src={mysqlImg.src} width={70} className="iconCard" title="mySql" />
         <img src={cppImg.src} width={50} className="iconCard" title="C++" />
       </div>
