@@ -30,7 +30,9 @@ const Resume = () => {
       >
         <Page
           pageNumber={1}
+          renderTextLayer={false}
           scale={width > 786 ? 1.7 : 0.6}
+          className="rounded-lg overflow-hidden shadow-lg [&>canvas]:rounded-lg"
           loading={<Loader message="Loading Resume..." />}
         />
       </Document>
