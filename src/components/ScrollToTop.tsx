@@ -1,11 +1,21 @@
 "use client";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { BsArrowUpSquareFill } from "react-icons/bs";
 
 const ScrollToTop = () => {
   const [visible, setVisible] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [pathname]);
+
   const toggleVisible = () => {
-    const scrolled = document.documentElement.scrollTop;
+    const scrolled =
+      document.documentElement.scrollTop ||
+      window.scrollY ||
+      document.body.scrollTop;
     if (scrolled > 300) setVisible(true);
     else setVisible(false);
   };
