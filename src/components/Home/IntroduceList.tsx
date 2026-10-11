@@ -13,7 +13,15 @@ function IntroduceList() {
       <li>
         Currently working as a{" "}
         <span className="highlight">Software Engineer - JavaScript</span> at{" "}
-        <span className="highlight font-medium">Aviato Consulting</span> (Remote).
+        <a
+          className="underline highlight font-medium"
+          target="_blank"
+          rel="noreferrer"
+          href="https://www.linkedin.com/company/aviato-consulting/"
+        >
+          Aviato Consulting
+        </a>{" "}
+        (Remote).
       </li>
       <li>
         Developing <span className="highlight">React.js & Next.js</span> web apps with integrated GenAI capabilities and automated workflows using <span className="highlight">n8n</span>.
@@ -24,13 +32,24 @@ function IntroduceList() {
       </li>
       <li>
         Certified{" "}
-        <span className="highlight">Google Cloud Associate Cloud Engineer</span>.
+        <span className="highlight">Google Cloud Associate Cloud Engineer</span>{" "}
+        -{" "}
+        <a
+          className="underline highlight"
+          target="_blank"
+          rel="noreferrer"
+          href="https://www.credly.com/badges/7882cc4f-50a4-4d0f-9849-f13de5792b01/public_url/"
+        >
+          View Credentials
+        </a>
+        .
       </li>
       <li>
         Previously at{" "}
         <a
           className="underline highlight"
           target="_blank"
+          rel="noreferrer"
           href="https://www.linkedin.com/company/fitpeo"
         >
           FitPeo Tech
