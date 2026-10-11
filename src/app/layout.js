@@ -5,6 +5,7 @@ import DotParticles from "../components/DotParticles";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
+import NextTopLoader from 'nextjs-toploader';
 
 export const metadata = {
   title: 'Ankit Sahu | Portfolio',
@@ -29,6 +30,12 @@ export default function RootLayout({ children }) {
         <Header />
         <div id="app" className="scroll-smooth text-white/90 font-extralight min-h-screen">
           <DotParticles />
+          <NextTopLoader
+            color='#db2777'
+            height={3}
+            showSpinner={false}
+            shadow={false}
+          />
           {children}
         </div>
         <Footer />
