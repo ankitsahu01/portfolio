@@ -4,11 +4,11 @@ function IntroduceList() {
   return (
     <ul className="marker:text-pink-500 list-disc space-y-8 pt-6 md:pt-8 pl-4">
       <li>
-        I am a <span className="highlight">Software Engineer</span> with{" "}
+        I am a <span className="highlight">Full Stack Engineer</span> with{" "}
         <span className="highlight">
           {process.env.NEXT_PUBLIC_YEAR_OF_EXP || "4+"} years
         </span>{" "}
-        of full-stack experience in building scalable web apps and integrating Generative AI.
+        of experience, with primary focus on <span className="highlight">Frontend development</span> (React.js & Next.js), alongside backend APIs, GCP cloud deployments, and Generative AI.
       </li>
       <li>
         Currently working as a{" "}
