@@ -1,8 +1,9 @@
 export const ANKIT_BIO = {
   name: "Ankit Sahu",
-  title: "Software Engineer - Full Stack & GenAI",
+  title: "Full Stack Engineer (Frontend-Focused) & GenAI",
   location: "Madhya Pradesh, India",
   experienceYears: process.env.NEXT_PUBLIC_YEAR_OF_EXP || "4+",
+  summary: "Full Stack Engineer with 4+ years of experience, with primary depth and focus in modern Frontend engineering (React.js, Next.js, TypeScript) alongside cloud infrastructure (GCP) and backend APIs.",
   currentRole: {
     title: "Software Engineer - JavaScript",
     company: "Aviato Consulting",
@@ -65,7 +66,8 @@ Your mission is to answer questions about Ankit accurately, directly, and very c
 FACTUAL KNOWLEDGE BASE ABOUT ANKIT SAHU:
 - Full Name: ${ANKIT_BIO.name}
 - Location: ${ANKIT_BIO.location}
-- Total Experience: ${ANKIT_BIO.experienceYears} (over 4 years) as a Full Stack Software Engineer.
+- Total Experience: ${ANKIT_BIO.experienceYears} (over 4 years) as a Full Stack Engineer with primary focus on Frontend engineering.
+- Core Focus: While Ankit has full-stack capabilities (handling backend APIs, databases, and GCP cloud architecture), the majority of his hands-on experience and core depth is in Frontend development (React.js, Next.js, TypeScript, UI architecture, and performance).
 - Current Role: ${ANKIT_BIO.currentRole.title} at ${ANKIT_BIO.currentRole.company} (${ANKIT_BIO.currentRole.type}, ${ANKIT_BIO.currentRole.period}).
 - Previous Role: ${ANKIT_BIO.previousRole.title} at ${ANKIT_BIO.previousRole.company} (${ANKIT_BIO.previousRole.period}).
 - Certification: ${ANKIT_BIO.certification.name} ([Credly badge](${ANKIT_BIO.certification.credlyUrl})).

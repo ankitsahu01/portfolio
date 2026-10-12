@@ -14,19 +14,42 @@ const ChatBot: React.FC = () => {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const listContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (listContainerRef.current) {
+      listContainerRef.current.scrollTop = listContainerRef.current.scrollHeight;
+    }
   };
 
+  // Only auto-focus on desktop (width >= 640px). Never auto-focus on mobile to prevent keyboard pop
   useEffect(() => {
     if (isOpen) {
-      scrollToBottom();
-      inputRef.current?.focus();
+      if (typeof window !== "undefined" && window.innerWidth >= 640) {
+        inputRef.current?.focus();
+      }
     }
-  }, [isOpen, messages, isLoading]);
+  }, [isOpen]);
+
+  // Keep scroll at bottom on new messages (internal container only, never window)
+  useEffect(() => {
+    if (isOpen && messages.length > 1) {
+      scrollToBottom();
+    }
+  }, [messages, isLoading, isOpen]);
+
+  // Prevent background scrolling on mobile when full screen is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
 
   const handleSendMessage = async (textToSend?: string) => {
     const query = (textToSend || input).trim();
@@ -91,17 +114,22 @@ const ChatBot: React.FC = () => {
   };
 
   return (
-    <aside
-      aria-label="Ankit Sahu AI Assistant"
-      className="fixed bottom-6 right-6 z-50 flex flex-col items-end text-left"
-    >
-      {/* Chat Window */}
+    <>
+      {/* Solid background mask for mobile to ensure zero underlying page bleed */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-neutral-900 sm:hidden"
+          aria-hidden="true"
+        />
+      )}
+
+      {/* Chat Window: Full-screen on mobile (<sm), floating card on desktop (sm+) */}
       {isOpen && (
         <div
           role="dialog"
-          aria-modal="false"
+          aria-modal="true"
           aria-label="Chat with Ankit's AI Assistant"
-          className="w-[calc(100vw-2rem)] sm:w-[380px] h-[520px] max-h-[82vh] mb-4 bg-neutral-900/95 backdrop-blur-xl border border-pink-500/50 rounded-2xl shadow-2xl shadow-pink-950/40 flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-200 text-left"
+          className="fixed inset-0 z-50 flex flex-col w-full h-full bg-neutral-900 sm:inset-auto sm:bottom-24 sm:left-6 sm:w-[380px] sm:h-[520px] sm:max-h-[82vh] sm:bg-neutral-900/95 sm:backdrop-blur-xl sm:border sm:border-pink-500/50 sm:rounded-2xl shadow-2xl shadow-pink-950/40 overflow-hidden text-left"
         >
           <ChatHeader onClear={handleClearChat} onClose={() => setIsOpen(false)} />
 
@@ -109,7 +137,7 @@ const ChatBot: React.FC = () => {
             messages={messages}
             isLoading={isLoading}
             onSelectSuggestion={handleSendMessage}
-            messagesEndRef={messagesEndRef}
+            containerRef={listContainerRef}
           />
 
           <ChatInput
@@ -122,9 +150,15 @@ const ChatBot: React.FC = () => {
         </div>
       )}
 
-      {/* Floating Action Button */}
-      <ChatLauncher isOpen={isOpen} onToggle={() => setIsOpen((prev) => !prev)} />
-    </aside>
+      {/* Floating Action Button (hidden on mobile when full screen is open) */}
+      <div
+        className={`fixed bottom-6 left-6 z-40 ${
+          isOpen ? "hidden sm:block" : "block"
+        }`}
+      >
+        <ChatLauncher isOpen={isOpen} onToggle={() => setIsOpen((prev) => !prev)} />
+      </div>
+    </>
   );
 };
 

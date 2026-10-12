@@ -8,8 +8,8 @@ const Type = () => {
       options={{
         strings: [
           "Software Engineer",
-          "Full-Stack Developer",
-          "React.js & Next.js",
+          "Full Stack (Frontend-Focused)",
+          "React.js & Next.js Expert",
           "TypeScript & JavaScript",
           "GenAI Integration",
           "Google Cloud (GCP)",

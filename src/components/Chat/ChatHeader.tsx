@@ -9,7 +9,7 @@ interface Props {
 
 const ChatHeader: React.FC<Props> = ({ onClear, onClose }) => {
   return (
-    <div className="px-4 py-3 bg-neutral-800/80 border-b border-pink-500/20 flex items-center justify-between">
+    <div className="px-4 py-3 bg-neutral-800/90 border-b border-pink-500/20 flex items-center justify-between shrink-0">
       <div className="flex items-center gap-2.5">
         <div className="relative w-8 h-8 rounded-full bg-gradient-to-tr from-pink-600 to-rose-400 flex items-center justify-center text-white shadow-md">
           <BsChatDotsFill size={18} />
@@ -28,19 +28,19 @@ const ChatHeader: React.FC<Props> = ({ onClear, onClose }) => {
           type="button"
           onClick={onClear}
           title="Clear conversation"
-          className="p-1.5 text-neutral-400 hover:text-pink-300 hover:bg-neutral-800 rounded-lg transition-colors"
+          className="p-2 sm:p-1.5 text-neutral-400 hover:text-pink-300 hover:bg-neutral-800 rounded-lg transition-colors"
           aria-label="Clear chat"
         >
-          <BsTrash size={15} />
+          <BsTrash size={16} />
         </button>
         <button
           type="button"
           onClick={onClose}
           title="Close chat"
-          className="p-1.5 text-neutral-400 hover:text-white hover:bg-neutral-800 rounded-lg transition-colors"
+          className="p-2 sm:p-1.5 text-neutral-400 hover:text-white hover:bg-neutral-800 rounded-lg transition-colors"
           aria-label="Close chat"
         >
-          <IoClose size={20} />
+          <IoClose size={22} />
         </button>
       </div>
     </div>
