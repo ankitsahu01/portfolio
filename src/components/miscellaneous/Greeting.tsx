@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const getGreeting = () => {
+const getGreeting = (): string => {
   const hrs = new Date().getHours();
   if (hrs >= 4 && hrs < 12) return "Good morning";
   if (hrs >= 12 && hrs < 17) return "Good afternoon";
@@ -10,14 +10,15 @@ const getGreeting = () => {
 };
 
 const Greeting = () => {
-  const [greeting, setGreeting] = useState<string>(getGreeting);
+  // Start with neutral greeting for perfect SSR hydration match
+  const [greeting, setGreeting] = useState<string>("Good day");
 
   useEffect(() => {
-    // Recalculates dynamically based on the visitor's local browser timezone
+    // Immediately updates to the user's local browser time upon mounting
     setGreeting(getGreeting());
   }, []);
 
-  return <span suppressHydrationWarning>{greeting}</span>;
+  return <>{greeting}</>;
 };
 
 export default Greeting;
