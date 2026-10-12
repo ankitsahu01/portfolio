@@ -7,17 +7,20 @@ interface Props {
   messages: Message[];
   isLoading: boolean;
   onSelectSuggestion: (question: string) => void;
-  messagesEndRef: RefObject<HTMLDivElement | null>;
+  containerRef: RefObject<HTMLDivElement | null>;
 }
 
 const ChatMessageList: React.FC<Props> = ({
   messages,
   isLoading,
   onSelectSuggestion,
-  messagesEndRef,
+  containerRef,
 }) => {
   return (
-    <div className="flex-1 overflow-y-auto p-4 space-y-3.5 text-sm text-left">
+    <div
+      ref={containerRef}
+      className="flex-1 min-h-0 overflow-y-auto p-4 space-y-3.5 text-sm text-left overscroll-contain"
+    >
       {messages.map((msg, index) => (
         <div
           key={index}
@@ -50,8 +53,6 @@ const ChatMessageList: React.FC<Props> = ({
           </div>
         </div>
       )}
-
-      <div ref={messagesEndRef} />
     </div>
   );
 };

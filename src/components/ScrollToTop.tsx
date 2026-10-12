@@ -30,12 +30,15 @@ const ScrollToTop = () => {
   }, []);
 
   return (
-    <BsArrowUpSquareFill
+    <button
+      type="button"
       onClick={() => window.scroll({ top: 0, left: 0, behavior: "smooth" })}
-      size="2rem"
-      className="text-white/70 hover:cursor-pointer fixed bottom-24 right-7 hover:text-white z-40 transition-all duration-200"
-      style={{ display: visible ? "inline" : "none" }}
-    />
+      aria-label="Scroll to top"
+      className="fixed bottom-6 right-6 z-40 w-14 h-14 flex items-center justify-center text-white/70 hover:text-white hover:cursor-pointer transition-all duration-200 active:scale-95"
+      style={{ display: visible ? "flex" : "none" }}
+    >
+      <BsArrowUpSquareFill size="2.25rem" />
+    </button>
   );
 };
 
