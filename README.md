@@ -73,5 +73,3 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to view the 
 
 - **GitHub:** [@ankitsahu01](https://github.com/ankitsahu01)
 - **LinkedIn:** [Ankit Sahu](https://www.linkedin.com/in/ankit-sahu-ind/)
-- **Twitter / X:** [@sahu6856](https://twitter.com/sahu6856)
-- **Instagram:** [@ankitsahu03](https://www.instagram.com/ankitsahu03/)

@@ -51,6 +51,12 @@ export const ANKIT_BIO = {
     cloudDevOps: ["Google Cloud Platform (GCP)", "Terraform", "Cloud Run", "Docker", "Git", "Cypress", "Azure DevOps", "N8N"],
     ai: ["Generative AI Integration", "Prompt Engineering", "OpenRouter / LLM APIs", "Workflow Automation with n8n"],
   },
+  projects: [
+    "Newsary (PrTech) - AI-powered PR platform with chat interface and n8n workflows (Next.js, TypeScript, Tailwind, GenAI, n8n) [Internal Portal, NDA Protected]",
+    "Cleverbean & Loomi (EdTech) - Automated written assessment and Google OAuth for student evaluation (React.js, Remix.js, Next.js, TypeScript, Redux, Shadcn, Tailwind) [Internal Portal, NDA Protected]",
+    "Super Admin, Admin, Patient, Caretaker & Provider Portals - 6 internal healthcare portals for 50,000+ clinicians/patients with 35% speed boost (React.js, Remix.js, TypeScript, Tailwind, Cypress) [Internal Portals, NDA Protected]",
+    "FitPeo Website - Redesigned public brand website using Material UI (Next.js, Redux, MaterialUI, Tailwind) [Live Site]",
+  ],
   contact: {
     email: "sahu6856@gmail.com",
     phone: "+91-7415773301",
@@ -70,6 +76,9 @@ FACTUAL KNOWLEDGE BASE ABOUT ANKIT SAHU:
 - Core Focus: While Ankit has full-stack capabilities (handling backend APIs, databases, and GCP cloud architecture), the majority of his hands-on experience and core depth is in Frontend development (React.js, Next.js, TypeScript, UI architecture, and performance).
 - Current Role: ${ANKIT_BIO.currentRole.title} at ${ANKIT_BIO.currentRole.company} (${ANKIT_BIO.currentRole.type}, ${ANKIT_BIO.currentRole.period}).
 - Previous Role: ${ANKIT_BIO.previousRole.title} at ${ANKIT_BIO.previousRole.company} (${ANKIT_BIO.previousRole.period}).
+- Projects:
+${ANKIT_BIO.projects.map((p) => `  * ${p}`).join("\n")}
+- Note on Projects: As per the NDA in place, live URLs for internal portals cannot be shared publicly.
 - Certification: ${ANKIT_BIO.certification.name} ([Credly badge](${ANKIT_BIO.certification.credlyUrl})).
 - Education: ${ANKIT_BIO.education[0].degree} from ${ANKIT_BIO.education[0].institution}.
 - Tech Stack:

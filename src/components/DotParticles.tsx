@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from "react";
+import { themeRgb } from "../config/theme";
 
 interface Particle {
   x: number;
@@ -8,14 +9,6 @@ interface Particle {
   alpha: number;
   alphaSpeed: number;
   vy: number;
-}
-
-interface ClickParticle {
-  x: number;
-  y: number;
-  radius: number;
-  alpha: number;
-  life: number;
 }
 
 const TOTAL_PARTICLES = 100;
@@ -42,22 +35,10 @@ const DotParticles: React.FC = () => {
       vy: Math.random() * 0.2 + 0.05,
     }));
 
-    const clickParticles: ClickParticle[] = [];
-
     const handleResize = () => {
       if (!canvas) return;
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
-    };
-
-    const handleClick = (e: MouseEvent) => {
-      clickParticles.push({
-        x: e.clientX,
-        y: e.clientY,
-        radius: 2,
-        alpha: 1,
-        life: 1,
-      });
     };
 
     const render = () => {
@@ -80,25 +61,8 @@ const DotParticles: React.FC = () => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(244, 114, 182, ${Math.max(0, Math.min(1, p.alpha))})`;
+        ctx.fillStyle = `rgba(${themeRgb.primaryContainer}, ${Math.max(0, Math.min(1, p.alpha * 0.4))})`;
         ctx.fill();
-      }
-
-      // Render click ripple particles
-      for (let i = clickParticles.length - 1; i >= 0; i--) {
-        const cp = clickParticles[i];
-        cp.life -= 0.02;
-        cp.radius += 0.3;
-        cp.alpha = Math.max(0, cp.life);
-
-        ctx.beginPath();
-        ctx.arc(cp.x, cp.y, cp.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(244, 114, 182, ${cp.alpha})`;
-        ctx.fill();
-
-        if (cp.life <= 0) {
-          clickParticles.splice(i, 1);
-        }
       }
 
       animationFrameId = requestAnimationFrame(render);
@@ -107,12 +71,10 @@ const DotParticles: React.FC = () => {
     render();
 
     window.addEventListener("resize", handleResize);
-    window.addEventListener("click", handleClick);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener("resize", handleResize);
-      window.removeEventListener("click", handleClick);
     };
   }, []);
 

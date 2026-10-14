@@ -1,64 +1,80 @@
-"use client";
-import { useState, useEffect } from "react";
-import "./headerStyle.css";
-import Link from "next/link";
-import { FaBars } from "react-icons/fa";
-import { ImCross } from "react-icons/im";
-import NavLinks from "./NavLinks";
+'use client';
+
+import { useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { FaBars } from 'react-icons/fa';
+import { ImCross } from 'react-icons/im';
+import NavLinks from './NavLinks';
+import { PORTFOLIO_DATA } from '../../data/portfolioData';
 
 const Header = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const toggleMenu = () => {
-    document.getElementById("mobileMenu").style.height = isMenuOpen
-      ? "0"
-      : "18.5rem";
-    setMenuOpen(!isMenuOpen);
-  };
-  const closeMenu = () => {
-    if (!isMenuOpen) return;
-    document.getElementById("mobileMenu").style.height = "0";
-    setMenuOpen(false);
-  };
+  const pathname = usePathname();
 
-  useEffect(() => {
-    if (!isMenuOpen) return;
-    document.getElementById("app").removeEventListener("click", () => {
-      closeMenu();
-    });
-    // To close mobile menu, whene someone click on rest part of webapp exlude navlinks.
-    return document.getElementById("app").addEventListener("click", () => {
-      closeMenu();
-    });
-  }, [isMenuOpen]);
+  const toggleMenu = () => setMenuOpen(!isMenuOpen);
+  const closeMenu = () => setMenuOpen(false);
+
+  const isContactActive = pathname === '/contact';
 
   return (
-    <header className="w-full px-16 text-white border-b border-pink-600/25 backdrop-blur bg-pink-900/20 z-10 fixed top-0 overflow-hidden">
-      <div className="flex my-3 md:my-3">
-        <div className="edgeEffectContainer">
-          <h1 className="my-auto text-3xl font-bold">
-            <Link href="/" onClick={closeMenu}>
-              AS.
-            </Link>
-          </h1>
-          <div className="first"></div>
-          <div className="second"></div>
+    <header className='fixed top-0 inset-x-0 z-50 bg-surface-base/85 backdrop-blur-xl border-b border-white/[0.06] transition-all'>
+      <div className='max-w-[1200px] mx-auto px-5 sm:px-8 h-16 flex items-center justify-between'>
+        {/* Brand Logo */}
+        <div className='flex items-center gap-3'>
+          <Link
+            href='/'
+            onClick={closeMenu}
+            className='flex items-baseline tracking-tight group'
+          >
+            <span className='text-xl font-bold text-white tracking-tight group-hover:text-primary transition-colors'>
+              {PORTFOLIO_DATA.personal.shortName}
+            </span>
+            <span
+              className='w-1.5 h-1.5 rounded-full bg-primary-container inline-block ml-[3px]'
+              aria-hidden='true'
+            />
+          </Link>
         </div>
-        <nav className="hidden lg:flex grow items-center justify-end gap-8 xl:gap-14">
-          <NavLinks />
+
+        {/* Desktop Navigation */}
+        <nav className='hidden md:flex items-center gap-8'>
+          <NavLinks closeMenu={closeMenu} />
         </nav>
-        <div className="lg:hidden flex grow justify-end">
-          <button onClick={toggleMenu}>
-            {isMenuOpen ? <ImCross size="1.5em" /> : <FaBars size="1.5em" />}
+
+        {/* Right Action: Contact Button */}
+        <div className='hidden md:flex items-center gap-3'>
+          <Link
+            href='/contact'
+            className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-raised border text-xs font-mono tracking-wider uppercase transition-all ${
+              isContactActive
+                ? 'border-primary-container text-primary font-semibold'
+                : 'border-white/10 hover:border-primary-container/50 text-white'
+            }`}
+          >
+            <span className='w-1.5 h-1.5 rounded-full bg-success-emerald animate-pulse' />
+            <span>Contact</span>
+          </Link>
+        </div>
+
+        {/* Mobile Hamburger Button */}
+        <div className='md:hidden flex items-center'>
+          <button
+            onClick={toggleMenu}
+            aria-label='Toggle navigation menu'
+            className='p-2 text-text-secondary hover:text-white transition-colors'
+          >
+            {isMenuOpen ? <ImCross size='1.1em' /> : <FaBars size='1.25em' />}
           </button>
         </div>
       </div>
 
-      <nav
-        id="mobileMenu"
-        className="lg:hidden flex flex-col items-center h-0 transition-[height] duration-500"
-      >
-        <NavLinks closeMenu={closeMenu} />
-      </nav>
+      {/* Mobile Drawer */}
+      {isMenuOpen && (
+        <div className='md:hidden border-b border-white/[0.08] bg-surface-base/95 backdrop-blur-2xl px-5'>
+          <NavLinks closeMenu={closeMenu} mobile={true} />
+        </div>
+      )}
     </header>
   );
 };
