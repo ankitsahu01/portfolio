@@ -118,7 +118,7 @@ const ChatBot: React.FC = () => {
       {/* Solid background mask for mobile to ensure zero underlying page bleed */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-40 bg-neutral-900 sm:hidden"
+          className="fixed inset-0 z-40 bg-surface-base sm:hidden"
           aria-hidden="true"
         />
       )}
@@ -129,7 +129,7 @@ const ChatBot: React.FC = () => {
           role="dialog"
           aria-modal="true"
           aria-label="Chat with Ankit's AI Assistant"
-          className="fixed inset-0 z-50 flex flex-col w-full h-full bg-neutral-900 sm:inset-auto sm:bottom-24 sm:left-6 sm:w-[380px] sm:h-[520px] sm:max-h-[82vh] sm:bg-neutral-900/95 sm:backdrop-blur-xl sm:border sm:border-pink-500/50 sm:rounded-2xl shadow-2xl shadow-pink-950/40 overflow-hidden text-left"
+          className="fixed inset-0 z-50 flex flex-col w-full h-full bg-surface-base sm:inset-auto sm:bottom-24 sm:left-6 sm:w-[380px] sm:h-[520px] sm:max-h-[82vh] sm:bg-surface-base/95 sm:backdrop-blur-xl sm:border sm:border-white/10 sm:rounded-2xl shadow-2xl shadow-black/80 overflow-hidden text-left"
         >
           <ChatHeader onClear={handleClearChat} onClose={() => setIsOpen(false)} />
 

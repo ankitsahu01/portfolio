@@ -22,10 +22,10 @@ const Loader: React.FC<LoaderProps> = ({
       className={`flex flex-col items-center justify-center gap-4 ${className}`}
     >
       <div
-        className={`${sizeClasses[size]} border-pink-600/30 border-t-pink-600 rounded-full animate-spin`}
+        className={`${sizeClasses[size]} border-primary-container/30 border-t-primary-container rounded-full animate-spin`}
       />
       {message && (
-        <p className="text-pink-400 font-medium tracking-wide">{message}</p>
+        <p className="text-amber-300 font-mono font-medium tracking-wide text-sm">{message}</p>
       )}
     </div>
   );

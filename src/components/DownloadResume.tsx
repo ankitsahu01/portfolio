@@ -1,13 +1,18 @@
-const DownloadResume = () => {
+import React from "react";
+import Button from "./common/Button";
+import { MdDownload } from "react-icons/md";
+
+const DownloadResume: React.FC = () => {
   return (
-    <a
-    className="py-1 px-3 text-lg font-light rounded-lg bg-pink-600 hover:bg-pink-800"
-    href="/resume.pdf"
-    download="AnkitSahu_Resume"
-    target="_blank"
+    <Button
+      href="/resume.pdf"
+      download="AnkitSahu_Resume"
+      variant="primary"
+      size="md"
     >
-      Download Resume
-    </a>
+      <span>Download Resume</span>
+      <MdDownload className="text-base" />
+    </Button>
   );
 };
 

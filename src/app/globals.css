@@ -1,58 +1,91 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
+@layer base {
+  :root {
+    --surface-base: theme('colors.surface-base');
+    --surface-raised: theme('colors.surface-raised');
+    --surface-overlay: theme('colors.surface-overlay');
+    --surface-card: theme('colors.surface-card');
+    --surface-high: theme('colors.surface-high');
+    --surface-highest: theme('colors.surface-highest');
+    --primary: theme('colors.primary');
+    --primary-container: theme('colors.primary-container');
+    --primary-hover: theme('colors.primary-hover');
+    --primary-foreground: theme('colors.primary-foreground');
+    --text-primary: theme('colors.text-primary');
+    --text-secondary: theme('colors.text-secondary');
+    --text-muted: theme('colors.text-muted');
+    --border-subtle: theme('colors.border-subtle');
+    --border-glow: theme('colors.border-glow');
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: theme('colors.surface-base');
+    color: theme('colors.text-primary');
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: theme('colors.primary-container');
+    color: theme('colors.primary-foreground');
+  }
 }
 
-body {
-  margin: 0;
-  font-family: "Montserrat", sans-serif;
-  text-align: justify;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #212121;
-  position: relative;
-  min-height: 100vh;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background-color: #212121;
-  background-image: url("/black-pink-bg-1.webp");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-blend-mode: overlay;
-  pointer-events: none;
-  transform: translateZ(0);
-}
-
-/* Scroll bar */
+/* Custom Obsidian Amber Scrollbar */
 ::-webkit-scrollbar {
-  max-width: 7px;
-  background-color: #5e2038;
+  width: 6px;
+  height: 6px;
 }
+
+::-webkit-scrollbar-track {
+  background: theme('colors.surface-base');
+}
+
 ::-webkit-scrollbar-thumb {
-  border-radius: 6px;
-  background-color: #db2777;
+  background: theme('colors.scrollbar-thumb');
+  border-radius: 9999px;
 }
 
+::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.primary-container');
+}
+
+/* Global Utility Classes */
 .highlight {
-  font-weight: 500;
-  color: rgb(219 39 119);
+  font-weight: 600;
+  color: theme('colors.primary-container');
 }
 
-/* SkillSets, ToolSets */
-.iconCard {
-  transition: transform 0.3s;
+.text-gradient-amber {
+  background: linear-gradient(
+    135deg,
+    theme('colors.primary-gradient-start') 0%,
+    theme('colors.primary-container') 50%,
+    theme('colors.primary-hover') 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.iconCard:hover {
-  transform: translateY(-0.3rem);
+/* Micro-animations */
+.hover-card-border {
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+.hover-card-border:hover {
+  border-color: theme('colors.border-glow');
 }

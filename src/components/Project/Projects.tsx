@@ -1,19 +1,12 @@
-import TalkgramPrg from "./TalkgramPrg";
-import DowntapePrg from "./DowntapePrg";
-import ShoppingPrg from "./ShoppingPrg";
-import StudyMaterialPrg from "./StudyMaterialPrg";
+import React from "react";
+import FeaturedProjects from "../Home/FeaturedProjects";
 
-const Project = () => {
+const Projects: React.FC = () => {
   return (
-    <div className="min-h-screen pt-20 p-2">
-      <div className="text-lg my-6 grid grid-cols-1 md:grid-cols-3 justify-items-center items-center gap-y-0 md:gap-y-20">
-        <TalkgramPrg />
-        <DowntapePrg />
-        <ShoppingPrg />
-        <StudyMaterialPrg />
-      </div>
+    <div className="min-h-screen pt-20 pb-16">
+      <FeaturedProjects />
     </div>
   );
 };
 
-export default Project;
+export default Projects;

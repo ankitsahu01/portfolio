@@ -19,7 +19,7 @@ const ChatMessageList: React.FC<Props> = ({
   return (
     <div
       ref={containerRef}
-      className="flex-1 min-h-0 overflow-y-auto p-4 space-y-3.5 text-sm text-left overscroll-contain"
+      className="flex-1 min-h-0 overflow-y-auto p-4 space-y-3.5 text-sm text-left overscroll-contain bg-surface-base"
     >
       {messages.map((msg, index) => (
         <div
@@ -27,10 +27,10 @@ const ChatMessageList: React.FC<Props> = ({
           className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
         >
           <div
-            className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 shadow-md leading-relaxed text-left ${
+            className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 shadow-md leading-relaxed text-left text-sm ${
               msg.role === "user"
-                ? "bg-pink-600 text-white rounded-tr-none"
-                : "bg-neutral-800/90 text-neutral-200 border border-neutral-700/60 rounded-tl-none"
+                ? "bg-primary-container text-primary-foreground font-medium rounded-tr-none shadow-glow-sm"
+                : "bg-surface-raised text-text-primary border border-white/10 rounded-tl-none font-sans"
             }`}
           >
             <ChatFormattedText text={msg.content} />
@@ -38,7 +38,7 @@ const ChatMessageList: React.FC<Props> = ({
         </div>
       ))}
 
-      {/* Suggested Quick Questions (Vertical List) */}
+      {/* Suggested Quick Questions */}
       {messages.length <= 1 && !isLoading && (
         <ChatSuggestions onSelect={onSelectSuggestion} />
       )}
@@ -46,10 +46,10 @@ const ChatMessageList: React.FC<Props> = ({
       {/* Typing Indicator */}
       {isLoading && (
         <div className="flex justify-start">
-          <div className="bg-neutral-800/90 border border-neutral-700/60 rounded-2xl rounded-tl-none px-4 py-3 flex items-center gap-1.5 shadow-md">
-            <span className="w-2 h-2 bg-pink-500 rounded-full animate-bounce [animation-delay:-0.3s]" />
-            <span className="w-2 h-2 bg-pink-500 rounded-full animate-bounce [animation-delay:-0.15s]" />
-            <span className="w-2 h-2 bg-pink-500 rounded-full animate-bounce" />
+          <div className="bg-surface-raised border border-white/10 rounded-2xl rounded-tl-none px-4 py-3 flex items-center gap-1.5 shadow-md">
+            <span className="w-2 h-2 bg-primary-container rounded-full animate-bounce [animation-delay:-0.3s]" />
+            <span className="w-2 h-2 bg-primary-container rounded-full animate-bounce [animation-delay:-0.15s]" />
+            <span className="w-2 h-2 bg-primary-container rounded-full animate-bounce" />
           </div>
         </div>
       )}

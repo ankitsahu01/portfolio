@@ -14,7 +14,7 @@ const ChatFormattedText: React.FC<Props> = ({ text }) => {
             {parts.map((part, j) => {
               if (part.startsWith("**") && part.endsWith("**")) {
                 return (
-                  <strong key={j} className="text-pink-400 font-semibold">
+                  <strong key={j} className="text-primary-container font-semibold">
                     {part.slice(2, -2)}
                   </strong>
                 );
@@ -29,7 +29,7 @@ const ChatFormattedText: React.FC<Props> = ({ text }) => {
                     href={href}
                     target={isExternal ? "_blank" : undefined}
                     rel={isExternal ? "noreferrer" : undefined}
-                    className="text-pink-400 underline font-medium hover:text-pink-300 transition-colors"
+                    className="text-primary-container underline font-medium hover:text-primary transition-colors"
                   >
                     {label}
                   </a>

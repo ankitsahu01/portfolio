@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { BsArrowUpSquareFill } from "react-icons/bs";
+import { FiArrowUp } from "react-icons/fi";
 
 const ScrollToTop = () => {
   const [visible, setVisible] = useState(false);
@@ -29,15 +29,16 @@ const ScrollToTop = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  if (!visible) return null;
+
   return (
     <button
       type="button"
       onClick={() => window.scroll({ top: 0, left: 0, behavior: "smooth" })}
       aria-label="Scroll to top"
-      className="fixed bottom-6 right-6 z-40 w-14 h-14 flex items-center justify-center text-white/70 hover:text-white hover:cursor-pointer transition-all duration-200 active:scale-95"
-      style={{ display: visible ? "flex" : "none" }}
+      className="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-xl bg-surface-raised border border-white/10 hover:border-primary-container text-text-secondary hover:text-primary-container shadow-2xl flex items-center justify-center transition-all duration-200 active:scale-95"
     >
-      <BsArrowUpSquareFill size="2.25rem" />
+      <FiArrowUp className="text-xl" />
     </button>
   );
 };
