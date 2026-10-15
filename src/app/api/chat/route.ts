@@ -60,14 +60,7 @@ export async function POST(req: Request) {
 
     if (chatCompletion.choices && chatCompletion.choices.length > 0) {
       const choice = chatCompletion.choices[0];
-      const replyContent = choice?.message?.content;
-      
-      let text = "";
-      if (typeof replyContent === "string") {
-        text = replyContent;
-      } else if (Array.isArray(replyContent)) {
-        text = replyContent.map((c) => (typeof c === "string" ? c : JSON.stringify(c))).join("");
-      }
+      let text = choice?.message?.content || "";
 
       // Sanitize: Strip any thinking blocks or "Thinking Process:" artifacts if present
       text = text
