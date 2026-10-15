@@ -62,6 +62,9 @@ const ChatBot: React.FC = () => {
     setInput("");
     setIsLoading(true);
 
+    // Keep input field focused continuously
+    inputRef.current?.focus();
+
     try {
       const response = await fetch("/api/chat", {
         method: "POST",
@@ -106,6 +109,9 @@ const ChatBot: React.FC = () => {
       ]);
     } finally {
       setIsLoading(false);
+      if (typeof window !== "undefined" && window.innerWidth >= 640) {
+        inputRef.current?.focus();
+      }
     }
   };
 

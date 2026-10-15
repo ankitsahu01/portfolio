@@ -30,7 +30,6 @@ const ChatInput: React.FC<Props> = ({
         value={input}
         onChange={(e) => onChange(e.target.value)}
         placeholder="Ask about experience, GCP, Aviato..."
-        disabled={isLoading}
         className="flex-1 !bg-surface-overlay !text-text-primary border border-white/10 rounded-xl px-3.5 py-2.5 sm:py-2 text-base sm:text-sm placeholder:text-text-muted focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all disabled:opacity-50 font-mono"
       />
       <button

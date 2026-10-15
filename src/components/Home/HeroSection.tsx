@@ -10,7 +10,7 @@ export const HeroSection: React.FC = () => {
 
   return (
     <section
-      className='max-w-[1200px] mx-auto px-5 sm:px-8 pt-12 pb-16 lg:pt-20 lg:pb-24 relative'
+      className='max-w-[1200px] mx-auto px-5 sm:px-8 pt-12 pb-16 lg:pt-20 lg:pb-24 relative scroll-mt-20'
       id='about'
     >
       {/* Ambient background glow */}

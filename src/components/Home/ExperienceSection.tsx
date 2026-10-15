@@ -7,7 +7,7 @@ export const ExperienceSection: React.FC = () => {
   const { experiences } = PORTFOLIO_DATA;
 
   return (
-    <section className="max-w-[1200px] mx-auto px-5 sm:px-8 py-16" id="experience">
+    <section className="max-w-[1200px] mx-auto px-5 sm:px-8 py-16 scroll-mt-20" id="experience">
       <SectionHeading
         eyebrow="WORK HISTORY"
         title="Experience & Career Milestones"

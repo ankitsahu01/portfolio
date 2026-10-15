@@ -27,13 +27,13 @@ const ChatMessageList: React.FC<Props> = ({
           className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
         >
           <div
-            className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 shadow-md leading-relaxed text-left text-sm ${
+            className={`max-w-[85%] min-w-0 rounded-2xl px-3.5 py-2.5 shadow-md leading-relaxed text-left text-sm break-words [overflow-wrap:anywhere] ${
               msg.role === "user"
-                ? "bg-primary-container text-primary-foreground font-medium rounded-tr-none shadow-glow-sm"
+                ? "bg-primary-container text-primary-foreground font-medium rounded-tr-none shadow-glow-sm selection:bg-surface-base selection:text-white"
                 : "bg-surface-raised text-text-primary border border-white/10 rounded-tl-none font-sans"
             }`}
           >
-            <ChatFormattedText text={msg.content} />
+            <ChatFormattedText text={msg.content} isUser={msg.role === "user"} />
           </div>
         </div>
       ))}
