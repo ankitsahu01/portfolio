@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { OpenRouter } from "@openrouter/sdk";
+import Groq from "groq-sdk";
 import { SYSTEM_PROMPT } from "@/lib/ai/context";
 
 interface IncomingMessage {
@@ -19,18 +19,18 @@ export async function POST(req: Request) {
       );
     }
 
-    const apiKey = process.env.OPENROUTER_API_KEY;
+    const apiKey = process.env.GROQ_API_KEY;
     if (!apiKey || apiKey.startsWith("your_") || apiKey.trim() === "") {
       return NextResponse.json({
         message: {
           role: "assistant",
           content:
-            "👋 Hi! I am **Ankit's AI Portfolio Assistant**.\n\nThe `OPENROUTER_API_KEY` has not been configured yet in your `.env.local` file. Once you provide a key, I can answer anything about Ankit's 4+ years of full-stack experience, Aviato Consulting, GCP certification, and tech stack!\n\nIn the meantime, feel free to check out his [Resume](/resume) or [Contact](/contact) page.",
+            "👋 Hi! I am **Ankit's AI Portfolio Assistant**.\n\nThe `GROQ_API_KEY` has not been configured yet in your `.env.local` file. Once you provide a key, I can answer anything about Ankit's 4+ years of full-stack experience, Aviato Consulting, GCP certification, and tech stack!\n\nIn the meantime, feel free to check out his [Resume](/resume) or [Contact](/contact) page.",
         },
       });
     }
 
-    // Keep the last 8 messages and cap length to prevent token abuse
+    // Keep the last 4 messages (2 conversation turns) and cap length to 400 chars to minimize tokens
     const sanitizedMessages = messages
       .filter(
         (m) =>
@@ -39,54 +39,28 @@ export async function POST(req: Request) {
           typeof m.content === "string" &&
           m.content.trim().length > 0
       )
-      .slice(-8)
+      .slice(-4)
       .map((m) => ({
-        role: m.role,
-        content: m.content.slice(0, 1000),
+        role: m.role as "user" | "assistant",
+        content: m.content.slice(0, 400),
       }));
 
-    const openRouter = new OpenRouter({
-      apiKey,
-      httpReferer: process.env.NEXT_PUBLIC_URL || "https://ankitsahu.vercel.app",
-      appTitle: "Ankit Sahu Portfolio",
+    const groq = new Groq({ apiKey });
+    const model = process.env.GROQ_MODEL || "openai/gpt-oss-120b";
+
+    const chatCompletion = await groq.chat.completions.create({
+      model,
+      messages: [
+        { role: "system", content: SYSTEM_PROMPT },
+        ...sanitizedMessages,
+      ],
+      temperature: 0.2,
+      max_tokens: 300,
     });
 
-    const model = process.env.OPENROUTER_MODEL || "apodex/apodex-1.1-mini:free";
-
-    const executeChatRequest = async () => {
-      return await openRouter.chat.send({
-        chatRequest: {
-          model,
-          messages: [
-            { role: "system", content: SYSTEM_PROMPT },
-            ...sanitizedMessages,
-          ],
-          temperature: 0.2,
-          reasoning: { effort: "none" },
-          maxTokens: 500,
-        },
-      });
-    };
-
-    let response;
-    try {
-      response = await executeChatRequest();
-    } catch (primaryErr) {
-      console.warn("Primary OpenRouter call failed, attempting 1 retry...", primaryErr);
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      response = await executeChatRequest();
-    }
-
-    if ("choices" in response && Array.isArray(response.choices) && response.choices.length > 0) {
-      const choice = response.choices[0];
-      const replyContent = choice?.message?.content;
-      
-      let text = "";
-      if (typeof replyContent === "string") {
-        text = replyContent;
-      } else if (Array.isArray(replyContent)) {
-        text = replyContent.map((c) => (typeof c === "string" ? c : JSON.stringify(c))).join("");
-      }
+    if (chatCompletion.choices && chatCompletion.choices.length > 0) {
+      const choice = chatCompletion.choices[0];
+      let text = choice?.message?.content || "";
 
       // Sanitize: Strip any thinking blocks or "Thinking Process:" artifacts if present
       text = text
@@ -122,7 +96,7 @@ export async function POST(req: Request) {
       },
     });
   } catch (err: unknown) {
-    console.error("OpenRouter Chat API Error:", err);
+    console.error("Groq Chat API Error:", err);
     let detail = "Upstream provider error";
     if (err instanceof Error) {
       detail = err.message;

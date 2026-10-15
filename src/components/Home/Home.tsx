@@ -5,7 +5,6 @@ import ImpactMetrics from "./ImpactMetrics";
 import FeaturedProjects from "./FeaturedProjects";
 import ExperienceSection from "./ExperienceSection";
 import FaqSection from "./FaqSection";
-import AiCopilotTeaser from "./AiCopilotTeaser";
 
 const Home: React.FC = () => {
   return (
@@ -16,7 +15,6 @@ const Home: React.FC = () => {
       <FeaturedProjects />
       <ImpactMetrics />
       <FaqSection />
-      <AiCopilotTeaser />
     </main>
   );
 };
