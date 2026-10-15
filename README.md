@@ -1,28 +1,32 @@
-# Ankit Sahu | Portfolio
+# Ankit Sahu — Portfolio & AI Copilot
 
-A modern, responsive personal portfolio built with **Next.js 14 (App Router)** and **Tailwind CSS**.
+A high-performance personal portfolio, engineering showcase, and interactive AI Copilot built with **Next.js (App Router)**, **TypeScript**, **Tailwind CSS**, and **OpenRouter SDK**.
 
 ---
 
 ## 🚀 Tech Stack
 
-- **Framework:** [Next.js 14](https://nextjs.org/) (App Router)
-- **UI & Styling:** [React 18](https://react.dev/), [Tailwind CSS](https://tailwindcss.com/)
+- **Framework:** [Next.js](https://nextjs.org/) (App Router, Server & Client Components)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/) with centralized theme engine (`src/config/theme.js`)
+- **AI & LLM Integration:** [@openrouter/sdk](https://openrouter.ai/) for contextual AI portfolio assistant
 - **Icons:** [React Icons](https://react-icons.github.io/react-icons/)
 - **Document Viewing:** [React PDF](https://github.com/wojtekmaj/react-pdf)
-- **Interactive Effects:** Typewriter Effect, HTML5 Canvas Particle Animation
-- **Email Service:** [EmailJS](https://www.emailjs.com/)
+- **Form Dispatch:** [EmailJS](https://www.emailjs.com/)
+- **Analytics & Insights:** [Vercel Speed Insights](https://vercel.com/docs/speed-insights)
 
 ---
 
-## ✨ Features
+## ✨ Key Features
 
-- **Dynamic Hero Section:** Typewriter animations and interactive canvas particle background.
-- **About & Skills:** Comprehensive overview of tech stack, programming languages, and developer tools.
-- **Projects Showcase:** Highlighted web applications with live links and repository references.
-- **Resume Viewer:** In-browser PDF resume preview with direct download option.
-- **Contact Form:** Direct messaging form integrated with EmailJS.
-- **SEO & Performance:** Optimized SSR and metadata via Next.js App Router.
+- **Interactive AI Copilot:** Context-aware chatbot powered by OpenRouter LLM, equipped with real-time bio, experience timeline, and project data.
+- **Centralized Theming Engine:** Single-source design token system (`theme.js`) controlling primary accents, surface layers, and WCAG-compliant high-contrast typography.
+- **Interactive Skills Matrix:** Hover & tap-capable category filter that dynamically highlights matching tech stacks without layout shift.
+- **Work History & Milestones:** Timeline with alternating ambient light gradients and verified Credly Google Cloud credentials.
+- **Featured Projects:** Production deliverables showcase featuring NDA status badges, tech tags, and live demos.
+- **Dedicated Executive Contact Page (`/contact`):** Unified executive challenge card with real-time availability badge, direct wire channels, and EmailJS form.
+- **In-Browser Resume Preview:** PDF resume viewer with pagination, zoom, and instant download.
+- **Vector Branding & PWA:** Scalable SVG favicons, Apple touch icons, and web manifest.
 
 ---
 
@@ -30,31 +34,38 @@ A modern, responsive personal portfolio built with **Next.js 14 (App Router)** a
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (version 18.17.0 or higher recommended)
+- [Node.js](https://nodejs.org/) (v18.17+ or v20+)
 - `npm` or `yarn`
 
-### Installation
+### 1. Clone & Install
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/ankitsahu01/portfolio.git
-   cd portfolio
-   ```
+```bash
+git clone https://github.com/ankitsahu01/portfolio.git
+cd portfolio
+npm install
+```
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+### 2. Environment Variables
 
-### Running Locally
+Create a `.env.local` file in the root directory:
 
-Start the development server:
+```env
+# AI Assistant (OpenRouter)
+OPENROUTER_API_KEY=your_openrouter_api_key
+
+# Contact Form (EmailJS)
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
+NEXT_PUBLIC_EMAILJS_USER_ID=your_user_id
+```
+
+### 3. Run Development Server
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to view the portfolio.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
@@ -62,10 +73,10 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to view the 
 
 | Command | Description |
 | :--- | :--- |
-| `npm run dev` | Runs the Next.js development server at `localhost:3000` |
-| `npm run build` | Compiles the production build |
-| `npm run start` | Runs the compiled production build |
-| `npm run lint` | Runs Next.js ESLint to verify code quality |
+| `npm run dev` | Starts local Next.js dev server at `localhost:3000` |
+| `npm run build` | Builds optimized production bundle |
+| `npm run start` | Starts production server from built assets |
+| `npm run lint` | Runs Next.js ESLint checks |
 
 ---
 
@@ -73,3 +84,4 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to view the 
 
 - **GitHub:** [@ankitsahu01](https://github.com/ankitsahu01)
 - **LinkedIn:** [Ankit Sahu](https://www.linkedin.com/in/ankit-sahu-ind/)
+- **Email:** [sahu6856@gmail.com](mailto:sahu6856@gmail.com)

@@ -73,6 +73,22 @@ export const SkillsSection: React.FC = () => {
   const { skillsHeadline, skillCategories, skillsList } = PORTFOLIO_DATA;
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
 
+  const handleMouseEnter = (key: string) => {
+    if (typeof window !== 'undefined' && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      setHoveredCategory(key);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (typeof window !== 'undefined' && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      setHoveredCategory(null);
+    }
+  };
+
+  const handleClick = (key: string) => {
+    setHoveredCategory((prev) => (prev === key ? null : key));
+  };
+
   return (
     <section
       className='max-w-[1200px] mx-auto px-5 sm:px-8 py-16 border-b border-white/[0.06]'
@@ -112,7 +128,7 @@ export const SkillsSection: React.FC = () => {
           </h2>
           <p className='text-text-secondary text-sm leading-relaxed'>
             {skillsHeadline.subtitle} <br />
-            <span className='italic font-serif text-lg text-amber-300'>
+            <span className='italic font-serif text-lg text-primary'>
               {skillsHeadline.quote}
             </span>
           </p>
@@ -122,7 +138,7 @@ export const SkillsSection: React.FC = () => {
         <div className='md:col-span-8'>
           <p className='text-text-secondary text-sm sm:text-base leading-relaxed'>
             My default go-to stack is{' '}
-            <strong className='text-white font-medium'>Next.js 14</strong>{' '}
+            <strong className='text-white font-medium'>Next.js</strong>{' '}
             (TypeScript &amp; Tailwind CSS) paired with{' '}
             <strong className='text-white font-medium'>Node.js</strong>{' '}
             microservices hosted on{' '}
@@ -151,13 +167,13 @@ export const SkillsSection: React.FC = () => {
                 <button
                   key={cat.key}
                   type='button'
-                  onMouseEnter={() => setHoveredCategory(cat.key)}
-                  onMouseLeave={() => setHoveredCategory(null)}
-                  onClick={() => setHoveredCategory((prev) => (prev === cat.key ? null : cat.key))}
-                  className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer ${
+                  onMouseEnter={() => handleMouseEnter(cat.key)}
+                  onMouseLeave={handleMouseLeave}
+                  onClick={() => handleClick(cat.key)}
+                  className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-colors duration-200 cursor-pointer select-none ${
                     isHovered
-                      ? 'bg-primary-container text-primary-foreground font-semibold shadow-md shadow-primary-container/25'
-                      : 'bg-surface-high text-zinc-300 hover:bg-primary-container hover:text-primary-foreground shadow-sm shadow-black/30'
+                      ? 'bg-primary-container text-primary-foreground shadow-md shadow-primary-container/25'
+                      : 'bg-surface-high text-zinc-300 md:hover:bg-primary-container md:hover:text-primary-foreground shadow-sm shadow-black/30'
                   }`}
                 >
                   {cat.label}
@@ -187,7 +203,7 @@ export const SkillsSection: React.FC = () => {
                     isMatching
                       ? isHoverActive
                         ? 'opacity-100 text-white'
-                        : 'opacity-100 text-zinc-200 hover:text-white hover:bg-surface-raised/40 cursor-default'
+                        : 'opacity-100 text-zinc-200 cursor-default'
                       : 'opacity-20 grayscale pointer-events-none select-none'
                   }`}
                 >

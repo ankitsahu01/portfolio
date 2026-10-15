@@ -5,8 +5,10 @@ import { PORTFOLIO_DATA } from "../data/portfolioData";
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
+
+  //  pb-20 lg:pb-10
   return (
-    <footer className="w-full border-t border-white/[0.08] bg-surface-base py-10 mt-12">
+    <footer className="w-full border-t border-white/[0.08] bg-surface-base pt-10 pb-24 xl:pb-10 mt-12">
       <div className="max-w-[1200px] mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-text-muted">
         <div className="flex items-center gap-2.5 flex-wrap justify-center sm:justify-start">
           <span className="font-bold text-white tracking-tight text-sm">
