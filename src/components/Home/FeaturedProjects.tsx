@@ -1,27 +1,17 @@
 import React from "react";
 import { PORTFOLIO_DATA } from "../../data/portfolioData";
+import { themeRgb } from "../../config/theme";
 import SectionHeading from "../common/SectionHeading";
 import { FiArrowUpRight, FiLock } from "react-icons/fi";
 
 export const FeaturedProjects: React.FC = () => {
-  const { projects, socials } = PORTFOLIO_DATA;
+  const { projects } = PORTFOLIO_DATA;
 
   return (
     <section className="max-w-[1200px] mx-auto px-5 sm:px-8 py-16" id="projects">
       <SectionHeading
         eyebrow="SELECTED PROJECTS"
         title="Featured Engineering Deliverables"
-        rightAction={
-          <a
-            href={socials.github}
-            target="_blank"
-            rel="noreferrer"
-            className="text-xs font-mono text-primary hover:underline flex items-center gap-1"
-          >
-            <span>View all repositories on GitHub</span>
-            <span>↗</span>
-          </a>
-        }
       />
 
       {/* NDA Notice Banner */}
@@ -47,11 +37,15 @@ export const FeaturedProjects: React.FC = () => {
           return (
             <div
               key={proj.id}
-              className="rounded-2xl bg-surface-raised border border-white/10 p-7 transition-all flex flex-col justify-between group relative overflow-hidden"
+              className="rounded-2xl bg-surface-raised border border-white/10 p-7 transition-all flex flex-col justify-between group relative overflow-hidden transform-gpu [transform:translateZ(0)]"
+              style={{ WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
             >
-              {/* Ambient mild theme glow on hover */}
+              {/* Ambient mild theme glow on hover: smooth radial-gradient to avoid mobile GPU square artifacts */}
               <div
-                className={`absolute ${glowPos} w-56 h-56 bg-primary-container/10 rounded-full blur-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                className={`absolute ${glowPos} w-64 h-64 rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                style={{
+                  background: `radial-gradient(circle, rgba(${themeRgb.primaryContainer}, 0.16) 0%, rgba(${themeRgb.primaryContainer}, 0.05) 45%, transparent 70%)`,
+                }}
               />
 
               <div className="relative z-10">

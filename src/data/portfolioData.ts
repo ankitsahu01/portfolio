@@ -72,7 +72,7 @@ export const PORTFOLIO_DATA = {
     emailMailto: "mailto:sahu6856@gmail.com",
   },
   coreTechStack: [
-    { name: "Next.js 14", highlight: false },
+    { name: "Next.js", highlight: false },
     { name: "React.js", highlight: false },
     { name: "TypeScript", highlight: false },
     { name: "GCP Cloud Run", highlight: true },
@@ -88,7 +88,7 @@ export const PORTFOLIO_DATA = {
     title: "My Skills",
     subtitle: "I build things for the people",
     quote: "Lean Design, Develop, Deploy",
-    description: "My default go-to stack is Next.js 14 (TypeScript & Tailwind CSS) paired with Node.js microservices hosted on Google Cloud Run. I also engineer automated enterprise workflows leveraging n8n, LangChain, and Redis for background message dispatching.",
+    description: "My default go-to stack is Next.js (TypeScript & Tailwind CSS) paired with Node.js microservices hosted on Google Cloud Run. I also engineer automated enterprise workflows leveraging n8n, LangChain, and Redis for background message dispatching.",
   },
   skillCategories: [
     { key: "frontend", label: "Frontend" },
@@ -100,7 +100,7 @@ export const PORTFOLIO_DATA = {
   skillsList: [
     { name: "TypeScript", iconId: "typescript", category: "frontend" },
     { name: "React.js", iconId: "react", category: "frontend" },
-    { name: "Next.js 14", iconId: "nextjs", category: "frontend" },
+    { name: "Next.js", iconId: "nextjs", category: "frontend" },
     { name: "Google Cloud (ACE)", iconId: "gcp", category: "cloud" },
     { name: "Cloud Run & K8s", iconId: "kubernetes", category: "cloud" },
     { name: "Terraform IaC", iconId: "terraform", category: "cloud" },
@@ -215,11 +215,11 @@ export const PORTFOLIO_DATA = {
       type: "Remote",
       isCurrent: true,
       bulletPoints: [
-        "Architecting responsive web applications in Next.js 14 & React.js, weaving native GenAI interfaces and zero-maintenance automated pipelines using n8n.",
+        "Architecting responsive web applications in Next.js & React.js, weaving native GenAI interfaces and zero-maintenance automated pipelines using n8n.",
         "Orchestrating cloud infrastructure on GCP using Terraform (IaC), autoscaling workloads on Cloud Run, and persisting state across Cloud SQL, Firebase, and GCS.",
         "Automating complex business workflows and data pipelines using n8n and webhook-driven orchestration.",
       ],
-      tags: ["Next.js 14", "React.js", "GenAI", "n8n", "Terraform", "GCP Cloud Run"],
+      tags: ["Next.js", "React.js", "GenAI", "n8n", "Terraform", "GCP Cloud Run"],
     },
     {
       id: "fitpeo-tech",
@@ -265,12 +265,12 @@ export const PORTFOLIO_DATA = {
     {
       id: "faq-1",
       question: "Who is Ankit Sahu?",
-      answer: "I am a Full Stack Engineer with 4+ years of professional experience building high-performance web applications and resilient cloud platforms. My core focus lies at the intersection of modern frontend architecture (React.js, Next.js 14 App Router, TypeScript), declarative Google Cloud infrastructure (GCP Cloud Run, Terraform), and automated GenAI / n8n pipelines.",
+      answer: "I am a Full Stack Engineer with 4+ years of professional experience building high-performance web applications and resilient cloud platforms. My core focus lies at the intersection of modern frontend architecture (React.js, Next.js, TypeScript), declarative Google Cloud infrastructure (GCP Cloud Run, Terraform), and automated GenAI / n8n pipelines.",
     },
     {
       id: "faq-2",
       question: "What is Ankit's core tech stack?",
-      answer: "My primary stack consists of Next.js 14, React.js, TypeScript, Tailwind CSS, Redux Toolkit on the client; Node.js, Express, Cloud Run, Cloud SQL, Firebase on the backend; Terraform, Docker, GCP, GCS for DevOps and infrastructure; and n8n, LangChain, and LLM APIs for autonomous workflow orchestration.",
+      answer: "My primary stack consists of Next.js, React.js, TypeScript, Tailwind CSS, Redux Toolkit on the client; Node.js, Express, Cloud Run, Cloud SQL, Firebase on the backend; Terraform, Docker, GCP, GCS for DevOps and infrastructure; and n8n, LangChain, and LLM APIs for autonomous workflow orchestration.",
     },
     {
       id: "faq-3",

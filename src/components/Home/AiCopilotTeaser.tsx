@@ -21,7 +21,7 @@ export const AiCopilotTeaser: React.FC = () => {
       setIsSearching(false);
       if (q.includes("next") || q.includes("react") || q.includes("frontend")) {
         setResponse(
-          "Profile Verified: Ankit has 4+ years of React and Next.js experience, architecting SSR apps with Next.js 14 App Router, TypeScript, and cutting page load latency by 35% at FitPeo Tech."
+          "Profile Verified: Ankit has 4+ years of React and Next.js experience, architecting SSR apps with Next.js, TypeScript, and cutting page load latency by 35% at FitPeo Tech."
         );
       } else if (q.includes("gcp") || q.includes("cloud") || q.includes("terraform")) {
         setResponse(

@@ -21,7 +21,6 @@ export const HeroSection: React.FC = () => {
         <div className='lg:col-span-7 flex flex-col items-start gap-5'>
           {/* Subheading pill badge */}
           <div className='inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-raised border border-amber-500/30 shadow-sm'>
-            <span className='w-2 h-2 rounded-full bg-primary-container animate-pulse' />
             <span className='font-mono text-xs font-medium text-amber-300 tracking-wide'>
               {personal.heroSubheading}
             </span>
