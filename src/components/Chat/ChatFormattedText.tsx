@@ -9,8 +9,8 @@ const ChatFormattedText: React.FC<Props> = ({ text, isUser = false }) => {
   return (
     <>
       {text.split("\n").map((line, i) => {
-        // Split by markdown links, bold tags, or raw URLs
-        const parts = line.split(/(\[.*?\]\(.*?\)|\*\*.*?\*\*|https?:\/\/[^\s)]+)/g);
+        // Split by markdown links, bold tags, raw URLs, or standalone email addresses
+        const parts = line.split(/(\[.*?\]\(.*?\)|\*\*.*?\*\*|https?:\/\/[^\s)]+|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g);
         return (
           <span key={i} className="block min-h-[1.25rem] text-left break-words [overflow-wrap:anywhere]">
             {parts.map((part, j) => {
@@ -45,6 +45,21 @@ const ChatFormattedText: React.FC<Props> = ({ text, isUser = false }) => {
                     }`}
                   >
                     {label}
+                  </a>
+                );
+              }
+              if (part.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+                return (
+                  <a
+                    key={j}
+                    href={`mailto:${part}`}
+                    className={`underline font-medium break-all transition-colors ${
+                      isUser
+                        ? "text-primary-foreground hover:opacity-80"
+                        : "text-primary-container hover:text-primary"
+                    }`}
+                  >
+                    {part}
                   </a>
                 );
               }

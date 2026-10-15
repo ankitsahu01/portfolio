@@ -1,6 +1,6 @@
 # Ankit Sahu — Portfolio & AI Copilot
 
-A high-performance personal portfolio, engineering showcase, and interactive AI Copilot built with **Next.js (App Router)**, **TypeScript**, **Tailwind CSS**, and **OpenRouter SDK**.
+A high-performance personal portfolio, engineering showcase, and interactive AI Copilot built with **Next.js (App Router)**, **TypeScript**, **Tailwind CSS**, and **Groq Cloud API**.
 
 ---
 
@@ -9,7 +9,7 @@ A high-performance personal portfolio, engineering showcase, and interactive AI 
 - **Framework:** [Next.js](https://nextjs.org/) (App Router, Server & Client Components)
 - **Language:** [TypeScript](https://www.typescriptlang.org/)
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/) with centralized theme engine (`src/config/theme.js`)
-- **AI & LLM Integration:** [@openrouter/sdk](https://openrouter.ai/) for contextual AI portfolio assistant
+- **AI & LLM Integration:** [groq-sdk](https://www.npmjs.com/package/groq-sdk) (Groq Cloud high-speed inference) for contextual AI portfolio assistant
 - **Icons:** [React Icons](https://react-icons.github.io/react-icons/)
 - **Document Viewing:** [React PDF](https://github.com/wojtekmaj/react-pdf)
 - **Form Dispatch:** [EmailJS](https://www.emailjs.com/)
@@ -19,7 +19,7 @@ A high-performance personal portfolio, engineering showcase, and interactive AI 
 
 ## ✨ Key Features
 
-- **Interactive AI Copilot:** Context-aware chatbot powered by OpenRouter LLM, equipped with real-time bio, experience timeline, and project data.
+- **Interactive AI Copilot:** Context-aware chatbot powered by Groq ultra-low-latency LLM inference, equipped with real-time bio, experience timeline, and project data.
 - **Centralized Theming Engine:** Single-source design token system (`theme.js`) controlling primary accents, surface layers, and WCAG-compliant high-contrast typography.
 - **Interactive Skills Matrix:** Hover & tap-capable category filter that dynamically highlights matching tech stacks without layout shift.
 - **Work History & Milestones:** Timeline with alternating ambient light gradients and verified Credly Google Cloud credentials.
@@ -50,8 +50,9 @@ npm install
 Create a `.env.local` file in the root directory:
 
 ```env
-# AI Assistant (OpenRouter)
-OPENROUTER_API_KEY=your_openrouter_api_key
+# AI Assistant (Groq Cloud)
+GROQ_API_KEY=your_groq_api_key
+GROQ_MODEL=openai/gpt-oss-120b
 
 # Contact Form (EmailJS)
 NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
