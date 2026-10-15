@@ -94,6 +94,15 @@ export async function POST(req: Request) {
         .replace(/^Thinking Process:[\s\S]*?(?=\n\n[^\n]|$)/gi, "")
         .trim();
 
+      // If the model prepended a boilerplate decline before giving the actual answer, strip the prefix
+      const declinePrefixPattern = /^I can only answer questions related to Ankit Sahu's (?:professional )?background(?:, experience)?(?:, and portfolio)?\.?\s*/i;
+      if (declinePrefixPattern.test(text)) {
+        const remainder = text.replace(declinePrefixPattern, "").trim();
+        if (remainder.length > 0) {
+          text = remainder;
+        }
+      }
+
       if (!text) {
         text = "I can only answer questions related to Ankit Sahu's professional background and skills.";
       }
