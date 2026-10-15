@@ -24,7 +24,12 @@ const Header = () => {
         <div className='flex items-center gap-3'>
           <Link
             href='/'
-            onClick={closeMenu}
+            onClick={() => {
+              closeMenu();
+              if (pathname === '/') {
+                window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+              }
+            }}
             className='flex items-baseline tracking-tight group'
           >
             <span className='text-xl font-bold text-white tracking-tight group-hover:text-primary transition-colors'>

@@ -73,6 +73,9 @@ export const NavLinks: React.FC<NavLinksProps> = ({ closeMenu, mobile = false })
       const elem = document.getElementById(targetId);
       if (elem) {
         elem.scrollIntoView({ behavior: "smooth" });
+        if (window.location.hash !== `#${targetId}`) {
+          window.history.pushState(null, "", href);
+        }
       }
     }
   };

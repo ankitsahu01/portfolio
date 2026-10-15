@@ -21,7 +21,7 @@ export const ImpactMetrics: React.FC = () => {
   };
 
   return (
-    <section className="max-w-[1200px] mx-auto px-5 sm:px-8 py-20" id="metrics">
+    <section className="max-w-[1200px] mx-auto px-5 sm:px-8 py-20 scroll-mt-20" id="metrics">
       <SectionHeading
         eyebrow="MEASURABLE DELIVERABLES"
         title="Engineered for measurable impact."

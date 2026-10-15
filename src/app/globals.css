@@ -27,6 +27,18 @@
     color-scheme: dark;
   }
 
+  /* Offset for fixed navbar on all anchor sections */
+  section[id],
+  [id="skills"],
+  [id="experience"],
+  [id="projects"],
+  [id="metrics"],
+  [id="faq"],
+  [id="about"],
+  [id="copilot"] {
+    scroll-margin-top: 5rem;
+  }
+
   body {
     margin: 0;
     padding: 0;

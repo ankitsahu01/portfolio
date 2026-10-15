@@ -22,7 +22,7 @@ export const FaqSection: React.FC = () => {
   };
 
   return (
-    <section className="max-w-[1200px] mx-auto px-5 sm:px-8 py-16" id="faq">
+    <section className="max-w-[1200px] mx-auto px-5 sm:px-8 py-16 scroll-mt-20" id="faq">
       <SectionHeading
         eyebrow="QUICK ANSWERS"
         title="About Ankit Sahu"

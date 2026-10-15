@@ -8,7 +8,7 @@ export const FeaturedProjects: React.FC = () => {
   const { projects } = PORTFOLIO_DATA;
 
   return (
-    <section className="max-w-[1200px] mx-auto px-5 sm:px-8 py-16" id="projects">
+    <section className="max-w-[1200px] mx-auto px-5 sm:px-8 py-16 scroll-mt-20" id="projects">
       <SectionHeading
         eyebrow="SELECTED PROJECTS"
         title="Featured Engineering Deliverables"

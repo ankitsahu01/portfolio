@@ -50,7 +50,7 @@ export const AiCopilotTeaser: React.FC = () => {
   };
 
   return (
-    <section className="max-w-[1200px] mx-auto px-5 sm:px-8 py-8">
+    <section className="max-w-[1200px] mx-auto px-5 sm:px-8 py-8 scroll-mt-20" id="copilot">
       <div className="p-6 rounded-2xl bg-surface-raised border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-4">
           <div className="w-12 h-12 rounded-xl bg-primary-container/20 border border-primary-container/40 flex items-center justify-center text-primary flex-shrink-0">

@@ -8,8 +8,49 @@ const ScrollToTop = () => {
   const pathname = usePathname();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    if (typeof window === "undefined") return;
+
+    const hash = window.location.hash;
+    if (hash) {
+      const targetId = hash.replace("#", "");
+      let attempts = 0;
+      const maxAttempts = 15;
+
+      const attemptScroll = () => {
+        const elem = document.getElementById(targetId);
+        if (elem) {
+          elem.scrollIntoView({ behavior: "smooth" });
+        } else if (attempts < maxAttempts) {
+          attempts++;
+          setTimeout(attemptScroll, 60);
+        }
+      };
+
+      // Delay slightly to let Next.js route transition and DOM render complete
+      const timer = setTimeout(attemptScroll, 80);
+      return () => clearTimeout(timer);
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }
   }, [pathname]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const targetId = hash.replace("#", "");
+        const elem = document.getElementById(targetId);
+        if (elem) {
+          elem.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
 
   useEffect(() => {
     let ticking = false;
